@@ -28,9 +28,9 @@ app.use(methodOverride('_method'));
 app.use(upload());
 
 //Mongo Configuration
-const mongoURI='mongodb://admin:admin123@ds027739.mlab.com:27739/egaming-development';
+const mongoURI='mongodb://admin1123:admin1123456@ds153096.mlab.com:53096/egaming-node';
 const devURI='mongodb://localhost/seminar_node'
-mongoose.connect(devURI, {useNewUrlParser: true});
+mongoose.connect(mongoURI, {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'database connection error:'));
 db.once('open', function() {
