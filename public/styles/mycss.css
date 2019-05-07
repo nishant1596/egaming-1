@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  background-color: rgb(26,26,26);
+}
+nav{
+  /* background-color: rgba(0,128,128,0.2); */
+  /* background-color: #1A4437; */
+  background-color: black;
+  padding: 0px 10px;
+
+}
+.sidenav{
+  background:linear-gradient(to right, rgba(0, 100, 0, 0.0),rgba(0, 100, 0, 1));
+
+}
+.sidenav > li > a{
+  color: white;
+}
+.sidenav > li > i{
+  color: white;
+}
+.front-ui-background{
+  min-height: 100vh;
+  background: rgb(26,26,26);
+}
+.brand-logo > img{
+  width: 20%;
+  height: 55px;
+}
+.e-gaming-logo{
+    min-width:30%;
+}
+.e-gaming-image{
+  width: 250px;
+  height: 250px;
+}
+.learn-image{
+  margin-top: 100px;
+  width: 100px;
+  height: 100px;
+}
+.hh{
+  font-size: 20px;
+  color: teal;
+  font-weight: bold;
+}
+#home-gif{
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+.scroll-down-icon{
+  margin-top: 110px;
+}
+.ask-question-title{
+  font-size: 3.2rem;
+  color: #1A4437;
+  font-weight: bold;
+}
+.e-gaming-logo{
+  height: 50vh;
+  width: 50%;
+}
+.e-gaming-image{
+  height:100px;
+  width: 100px;
+  /* margin-top: 10vh; */
+  cursor: pointer;
+}
+.nav-wrapper-image{
+  height:64px;
+  width:80px;
+}
+
+/*Seminar Section finishes */
+@media screen and (max-width: 920px) {
+  .e-gaming-logo{
+    height: 40vh;
+    width: 100%;
+  }
+  .e-gaming-image{
+    height:100px;
+    width: 100px;
+    cursor: pointer;
+  }
+  .nav-wrapper-image{
+    height:56px;
+    width:80px;
+  }
+}
+
+
+
+
+/* Pulse Button On Front Screen */
+.pulse-button {
+
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: none;
+  box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+  border-radius: 50%;
+  background-color: #e84c3d;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/173024/jonathanlarradet_copy.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+.pulse-button:hover
+{
+  -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+}
+
+@-webkit-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
+@-moz-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
+@-ms-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
+@keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}

@@ -1,0 +1,144 @@
+<script src="/ckeditor/ckeditor.js"></script>
+
+<div class="container-fluid" style="background:white;margin-top:100px;">
+  <div class="container">
+
+    <div class="row">
+        <form class="col s12" enctype="multipart/form-data" method="post" action="/cms/seminar/add">
+          <div class="row">
+            <div class="center" style="color:#1A4437; font-size:20px;font-weight:bold;">
+              <span style="border:1px dotted grey;padding:10px;">Add a Seminar</span>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Game Name" id="seminar_title" name="seminar_title" type="text" class="validate" required>
+              <label for="seminar-title">Seminar Title</label>
+            </div>
+            <div class="input-field col s12">
+              <textarea name="seminar_detail" id="editor1" contenteditable="true"></textarea>
+              <!-- <label for="textarea-seminar">Add Details about the Seminar</label> -->
+            </div>
+            <div class="input-field col s12 m3 l3">
+              <!-- <label for="city_name">City Name</label> -->
+              <select class="browser-default" name="seminar_city" required>
+                <option value="" disabled selected>Choose City</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="delhi">Delhi</option>
+                <option value="calcutta">Calcutta</option>
+                <option value="kochi">Kochi</option>
+                <option value="jaipur">Jaipur</option>
+              </select>
+
+            </div>
+            <div class="col m1 l1"></div>
+            <div class="input-field col s12 m3 l3">
+              <!-- <label for="city_name">City Name</label> -->
+              <select class="browser-default" name="seminar_gamename" required>
+                <option value="" disabled selected>Choose Game</option>
+                <option value="pubg">Pubg</option>
+                <option value="candycrush">Candy Crush</option>
+                <option value="counterstrike">Counter-Strike</option>
+                <option value="fortnight">Fortnite</option>
+                <option value="pop">Prince of Persia</option>
+              </select>
+
+            </div>
+            <div class="col m1 l1"></div>
+            <div class="input-field col s12 m3 l3">
+              <input placeholder="₹" id="seminar_price" type="text" name="seminar_price" class="validate" required>
+              <label for="seminar_price">Seminar Price (₹)</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s6">
+              <div class="file-field input-field" required>
+               <div class="btn">
+                 <span>Seminar Image</span>
+                 <input type="file" name="seminar_image">
+               </div>
+               <div class="file-path-wrapper">
+                 <input class="file-path validate" type="text">
+               </div>
+             </div>
+            </div>
+            <div class="col s6">
+              Choose Seminar Date<input type="date" name="seminar_date" required>
+            </div>
+          </div>
+          <div class="row">
+            Game Type
+            <div class="col s12">
+
+              <label>
+                <!-- <input type="checkbox" name="chk" value="racing"/> -->
+                <input class="with-gap" name="seminar_gametype" type="radio" value="racing" />
+                <span>Racing</span>
+              </label>
+              <span style="margin-right:50px;"></span>
+              <label>
+                <!-- <input type="checkbox" name="chk" value="shooting"/> -->
+                <input class="with-gap" name="seminar_gametype" type="radio" value="shooting" />
+                <span>Shooting</span>
+              </label>
+              <span style="margin-right:50px;"></span>
+
+              <label>
+                <!-- <input type="checkbox" name="chk" value="strategy"/> -->
+                <input class="with-gap" name="seminar_gametype" type="radio" value="strategy" />
+                <span>Strategy</span>
+              </label>
+              <span style="margin-right:50px;"></span>
+
+              <label>
+                <!-- <input type="checkbox" name="chk" value="puzzle"/> -->
+                <input class="with-gap" name="seminar_gametype" type="radio" value="puzzle" />
+                <span>Puzzle</span>
+              </label>
+              <span style="margin-right:50px;"></span>
+
+              <label>
+                <!-- <input type="checkbox" name="chk" value="role-playing"/> -->
+                <input class="with-gap" name="seminar_gametype" type="radio" value="role-playing" />
+                <span>Role Playing</span>
+              </label>
+              <span style="margin-right:50px;"></span>
+
+              <label>
+                <!-- <input type="checkbox" name="chk" value="arcade"/> -->
+                <input class="with-gap" name="seminar_gametype" type="radio" value="arcade" />
+                <span>Arcade</span>
+              </label>
+              <span style="margin-right:50px;"></span>
+
+              <label>
+                <input class="with-gap" name="seminar_gametype" type="radio" value="action" />
+                <span>Action</span>
+              </label>
+              <span style="margin-right:50px;"></span>
+
+            </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s12">
+                <textarea id="address-seminar" class="materialize-textarea" name="seminar_address" data-length="120" required></textarea>
+                <label for="address_seminar">Address of the Venue</label>
+              </div>
+          </div>
+          <div class="row">
+            <center>
+              <input type="submit" name="seminar_add_submit" class="btn btn-success" value="Add Seminar">
+            </center>
+          </div>
+        </form>
+      </div>
+
+  </div>
+
+  </div>
+<script>
+  CKEDITOR.replace( 'editor1' );
+</script>
