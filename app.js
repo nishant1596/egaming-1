@@ -30,7 +30,7 @@ app.use(upload());
 //Mongo Configuration
 const mongoURI='mongodb://admin1123:admin1123456@ds153096.mlab.com:53096/egaming-node';
 const devURI='mongodb://localhost/seminar_node'
-mongoose.connect(mongoURI, {useNewUrlParser: true});
+mongoose.connect(devURI, {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'database connection error:'));
 db.once('open', function() {

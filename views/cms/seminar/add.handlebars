@@ -1,6 +1,14 @@
 <script src="/ckeditor/ckeditor.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+     <!-- Include external CSS. -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
 
-<div class="container-fluid" style="background:white;margin-top:100px;">
+<!-- Include Editor style. -->
+<link href="https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+<div class="container-fluid" style="background:white; margin-top:200px;">
   <div class="container">
 
     <div class="row">
@@ -17,7 +25,7 @@
               <input placeholder="Game Name" id="seminar_title" name="seminar_title" type="text" class="validate" required>
               <label for="seminar-title">Seminar Title</label>
             </div>
-            <div class="input-field col s12">
+            <div class="">
               <textarea name="seminar_detail" id="editor1" contenteditable="true"></textarea>
               <!-- <label for="textarea-seminar">Add Details about the Seminar</label> -->
             </div>
@@ -139,6 +147,32 @@
   </div>
 
   </div>
+  <script src="/materialize/jquery.js" charset="utf-8"></script>
+     <script src="/textOnScreen.js" charset="utf-8"></script>
+     <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+     <script>
+     $(document).ready(function(){
+        $('.sidenav').sidenav();
+      });
+      $(".dropdown-trigger").dropdown();
+      $(document).ready(function(){
+    // $('.datepicker').datepicker();
+  });
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+  $(document).ready(function(){
+      $('.modal').modal();
+      $('#modal1').modal();
+    });
+
+
+</script>
 <script>
   CKEDITOR.replace( 'editor1' );
 </script>
