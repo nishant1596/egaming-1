@@ -1,0 +1,61 @@
+<script src="/ckeditor/ckeditor.js"></script>
+<!-- Bootstrap Form -->
+<div class="container" style="margin-top:110px">
+  <h3 class="text-center">Welcome Pankaj</h3>
+  <h2>Add Coures for <span style="color:green">{{resultCoaching.coaching_title}}</span> </h2>
+  <!-- <p>The form below contains two input elements; one of type text and one of type password:</p> -->
+
+  <form action="/cms/coaching/add/add-courses/{{resultCoaching._id}}?_method=PUT" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="course_title">Course Title</label>
+          <input type="text" class="form-control" id="course_title" name="course_name" required>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group">
+          <label for="course_detail">course Details (Please do not use picture option here)</label>
+          <textarea class="form-control" id="editor1" name="course_detail" required></textarea>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="course_image">Course Image</label>
+          <input type="file" name="course_image" id="course_image" class="form-control form-control-file border" required>
+        </div>
+      </div>
+      <div class="form-group col-12">
+        <input type="number" class="form-control" id="course_has_offer_text" name="course_duration">
+        <label class="" for="course_duration">Duration of the Course</label>
+      </div>
+      <div class="form-group col-12">
+        <input type="number" class="form-control" id="course_seats" name="course_seats">
+        <label class="" for="course_duration">Course seats</label>
+      </div>
+      <div class="form-group col-12">
+        <input type="number" class="form-control" id="course_price" name="course_price">
+        <label class="" for="course_price">Course Price</label>
+      </div>
+    <div class="form-group container">
+      <input type="checkbox" class="" id="course_has_offer" name="course_has_offer">
+      <label class="custom-control-label" for="course_has_offer">Offer on this course</label>
+    </div>
+    <div class="form-group col-12">
+      <input type="input" class="form-control" id="course_has_offer_text" name="course_has_offer_text">
+      <label class="" for="course_has_offer_text">Write about the offer</label>
+    </div>
+  </div>
+  <div class="text-center mb-3">
+    <button type="submit" class="btn btn-success " >Submit</button>
+  </div>
+  </form>
+
+
+
+</div>
+<script>
+  CKEDITOR.replace( 'editor1' );
+  $('.your-checkbox').prop('indeterminate', true)
+</script>

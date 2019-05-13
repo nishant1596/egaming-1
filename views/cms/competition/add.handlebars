@@ -1,0 +1,125 @@
+<script src="/ckeditor/ckeditor.js"></script>
+<!-- Bootstrap Form -->
+<div class="container" style="margin-top:110px">
+  <h3 class="text-center">Welcome Pankaj</h3>
+  <h2>Add competitions</h2>
+  <!-- <p>The form below contains two input elements; one of type text and one of type password:</p> -->
+
+  <form action="/cms/competition/add" method="post">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="competition_title">competition Title</label>
+          <input type="text" class="form-control" id="competition_title" name="competition_title" required>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group">
+          <label for="competition_detail">competition Details (Please do not use picture option here)</label>
+          <textarea class="form-control" id="editor1" name="competition_detail" required></textarea>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="competition_date">competition Date</label>
+          <input type="date" class="form-control" id="competition_title" name="competition_date" required>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="competition_name">Game Name of the competition</label>
+            <select class="form-control" id="competition_name" name="competition_name" required >
+              <option value="pubg">Pubg</option>
+              <option value="candy_crush">Candy Crush</option>
+              <option value="fortnite">Fortnite</option>
+              <option value="mortal_combat">Mortal Combat 11</option>
+              <option value="far_cry_city">Far Cry City Dowm</option>
+              <option value="fortnite">Fortnite</option>
+              <option value="prince_of_persia">Prince of Persia:The Forgotten Sand</option>
+            </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="competition_price">Price of the competition</label>
+            <input type="number" name="competition_price" class="form-control" placeholder="₹ &nbsp;" required>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-4 col-md-4">
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select class="form-control" id="competition_country" name="competition_country" required onclick="">
+          <option value="in">India</option>
+          <option value="uk">United Kingdom</option>
+          <option value="sz">Switzerland</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-4">
+      <div class="form-group">
+        <label for="state">State</label>
+        <select class="form-control" id="competition_state" name="competition_state" required>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Kerala">Kerala</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-4">
+      <div class="form-group">
+        <label for="city">City</label>
+        <select class="form-control" id="competition_city" name="competition_city" required>
+          <option value="bangalore">Bangalore</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="hyderabad">Hyderabad</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+      <div class="form-group">
+        <label for="competition_type">Competition Type</label>
+        <select class="form-control" id="competition_type" name="competition_type" required >
+          <option value="Solo">Solo</option>
+          <option value="Duo">Duo</option>
+          <option value="Squad">Squad</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+      <div class="form-group">
+        <label for="competition_image">competition Image</label>
+        <input type="file" name="competition_image" id="competition_image" class="form-control form-control-file border" required>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+      <div class="form-group">
+        <label for="competition_duration">Competition Duration</label>
+          <input type="number" name="competition_duration" class="form-control" placeholder="Duration in Hours" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="checkbox" class="" id="competition_isPremium" name="competition_isPremium" checked>
+      <label class="custom-control-label" for="competition_isPremium">is Premium ?</label>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="competition_address">competition Address</label>
+        <textarea class="form-control" id="competition_address" name="competition_address" required></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mb-3">
+    <button type="submit" class="btn btn-success " >Submit</button>
+  </div>
+
+  </form>
+
+
+
+</div>
+<script>
+  CKEDITOR.replace( 'editor1' );
+  $('.your-checkbox').prop('indeterminate', true)
+</script>

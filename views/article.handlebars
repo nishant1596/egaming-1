@@ -1,0 +1,349 @@
+<div class="home">
+  <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/images/properties.jpg" data-speed="0.8"></div>
+  <div class="home_container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="home_content d-flex flex-row align-items-end justify-content-start">
+            <div class="home_title">Explore articles</div>
+            <div class="breadcrumbs ml-auto">
+              <ul>
+                <li><a href="/">egaming</a></li>
+                <li>Everyday New Articles for you</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Home Search -->
+<!-- <div class="home_search">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="home_search_container">
+          <div class="home_search_content">
+            <form action="article" class="search_form d-flex flex-row align-items-start justfy-content-start" method="get">
+              <div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
+                <div>
+                  <select class="search_form_select" name="article_gamename">
+                    <option disabled selected>Game</option>
+                    <option value="pubg">Pubg</option>
+                    <option value="candycrush">Candy Crush</option>
+                    <option value="fortnite">Fortnite</option>
+                    <option value="cs">Counter Strike</option>
+                  </select>
+                </div>
+                <div>
+                  <select class="search_form_select" name="article_type">
+                    <option disabled selected>Game Type</option>
+                    <option value="racing">Racing</option>
+                    <option value="shooting">Shooting</option>
+                    <option value="strategy">Strategy</option>
+                    <option value="puzzle">Puzzle</option>
+                    <option value="role-playing">Role Playing</option>
+                    <option value="arcade">Arcade</option>
+                    <option value="action">Action</option>
+                  </select>
+                </div>
+                <div>
+                  <select class="search_form_select" name="article_price">
+                    <option disabled selected>article Price</option>
+                    <option value="1">High to Low</option>
+                    <option value="-1">Low to High</option>
+                  </select>
+                </div>
+                <div>
+                  <select class="search_form_select" name="article_country">
+                    <option disabled selected>Country</option>
+                    <option value="india">India</option>
+                    <option value="usa">USA</option>
+                    <option value="sri-lanka">Sri Lanka</option>
+                    <option value="china">China</option>
+                    <option value="russia">Russia</option>
+                    <option value="south-korea">South Korea</option>
+                    <option value="england">England</option>
+                    <option value="malaysia">Malaysia</option>
+                  </select>
+                </div>
+                <div>
+                  <select class="search_form_select" name="article_state">
+                    <option disabled selected>State</option>
+                    <option value="rajasthan">Rajasthan</option>
+                    <option value="maharashtra">Maharashtra</option>
+                    <option value="kerala">Kerala</option>
+                    <option value="karnataka">Karnataka</option>
+                    <option value="goa">Goa</option>
+                    <option value="punjab">Punjab</option>
+                    <option value="haryana">Haryana</option>
+                    <option value="gujarat">Gujarat</option>
+                  </select>
+                </div>
+                <div>
+                  <select class="search_form_select" name="article_city">
+                    <option disabled selected>City</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="pune">Pune</option>
+                    <option value="kolkata">Kolkata</option>
+                    <option value="jaipur">jaipur</option>
+                    <option value="panji">Panji</option>
+                    <option value="chandigarh">Chandigarh</option>
+                    <option value="bangalore">Bangalore</option>
+                    <option value="hyderabad">Hyderabad</option>
+                  </select>
+                </div>
+              </div>
+              <button class="search_form_button ml-auto" type="submit">search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Properties -->
+
+<div class="properties">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section_title">{{articleCount}} articles found</div>
+        <div class="section_subtitle">Newly Updated Posts</div>
+      </div>
+    </div>
+    <div class="row properties_row">
+
+      <!-- Property -->
+      {{#if article}}
+      {{#each article}}
+
+      <div class="col-xl-4 col-lg-6 property_col">
+        <div class="property">
+          <div class="property_image">
+            <img src="/uploads/1557235108603-cod.jpg" alt="" height="200" width="100%">
+            {{#ifCond "on" article_isPremium}}
+            <div class="tag_featured property_tag"><a href="#">Featured</a></div>
+            {{/ifCond}}
+          </div>
+          <div class="property_body text-center">
+            <div class="property_location">{{article_type}}</div>
+            <div class="property_title"><a href="#">{{article_title}}</a></div>
+            <div class="button recent_button"><a href="/article/detail/{{id}}">Read Article</a></div>
+          </div>
+          <!-- <div class="property_footer d-flex flex-row align-items-center justify-content-center">
+            <div>{{article_}}</div>
+            <div><div class="property_icon"><img src="/images/event-calender.png" alt=""></div><span>24/07/2019</span></div> -->
+            <!-- <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div> -->
+            <!-- <div><span>₹ &nbsp;{{article_price}}</span></div>
+          </div> -->
+        </div>
+      </div>
+      {{/each}}
+      {{/if}}
+      <!-- Property -->
+      <!-- <div class="col-xl-4 col-lg-6 property_col">
+        <div class="property">
+          <div class="property_image">
+            <img src="/images/property_2.jpg" alt="">
+            <div class="tag_offer property_tag"><a href="#">Offer</a></div>
+          </div>
+          <div class="property_body text-center">
+            <div class="property_location">Los Angeles</div>
+            <div class="property_title"><a href="property.html">2 Floor Town House</a></div>
+            <div class="property_price">$ 1. 234 981</div>
+          </div>
+          <div class="property_footer d-flex flex-row align-items-center justify-content-start">
+            <div><div class="property_icon"><img src="/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+            <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+            <div><div class="property_icon"><img src="/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Property -->
+      <!-- <div class="col-xl-4 col-lg-6 property_col">
+        <div class="property">
+          <div class="property_image">
+            <img src="/images/property_3.jpg" alt="">
+            <div class="tag_featured property_tag"><a href="#">Featured</a></div>
+          </div>
+          <div class="property_body text-center">
+            <div class="property_location">Florida</div>
+            <div class="property_title"><a href="property.html">Vacation Home</a></div>
+            <div class="property_price">$ 1. 234 981</div>
+          </div>
+          <div class="property_footer d-flex flex-row align-items-center justify-content-start">
+            <div><div class="property_icon"><img src="/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+            <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+            <div><div class="property_icon"><img src="/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Property -->
+      <!-- <div class="col-xl-4 col-lg-6 property_col">
+        <div class="property">
+          <div class="property_image">
+            <img src="/images/property_4.jpg" alt="">
+            <div class="tag_new property_tag"><a href="#">New</a></div>
+          </div>
+          <div class="property_body text-center">
+            <div class="property_location">Miami</div>
+            <div class="property_title"><a href="property.html">Sea view property</a></div>
+            <div class="property_price">$ 1. 234 981</div>
+          </div>
+          <div class="property_footer d-flex flex-row align-items-center justify-content-start">
+            <div><div class="property_icon"><img src="/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+            <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+            <div><div class="property_icon"><img src="/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Property -->
+      <!-- <div class="col-xl-4 col-lg-6 property_col">
+        <div class="property">
+          <div class="property_image">
+            <img src="/images/property_5.jpg" alt="">
+          </div>
+          <div class="property_body text-center">
+            <div class="property_location">New York</div>
+            <div class="property_title"><a href="property.html">Sea view property</a></div>
+            <div class="property_price">$ 1. 234 981</div>
+          </div>
+          <div class="property_footer d-flex flex-row align-items-center justify-content-start">
+            <div><div class="property_icon"><img src="/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+            <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+            <div><div class="property_icon"><img src="/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Property -->
+      <!-- <div class="col-xl-4 col-lg-6 property_col">
+        <div class="property">
+          <div class="property_image">
+            <img src="/images/property_6.jpg" alt="">
+          </div>
+          <div class="property_body text-center">
+            <div class="property_location">Miami</div>
+            <div class="property_title"><a href="property.html">Sea view property</a></div>
+            <div class="property_price">$ 1. 234 981</div>
+          </div>
+          <div class="property_footer d-flex flex-row align-items-center justify-content-start">
+            <div><div class="property_icon"><img src="/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+            <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+            <div><div class="property_icon"><img src="/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+          </div>
+        </div> -->
+      </div>
+
+      <!-- Property -->
+      <!-- <div class="col-xl-4 col-lg-6 property_col">
+        <div class="property">
+          <div class="property_image">
+            <img src="/images/property_7.jpg" alt="">
+            <div class="tag_new property_tag"><a href="#">New</a></div>
+          </div>
+          <div class="property_body text-center">
+            <div class="property_location">Miami</div>
+            <div class="property_title"><a href="property.html">Sea view property</a></div>
+            <div class="property_price">$ 1. 234 981</div>
+          </div>
+          <div class="property_footer d-flex flex-row align-items-center justify-content-start">
+            <div><div class="property_icon"><img src="/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+            <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+            <div><div class="property_icon"><img src="/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Property -->
+      <!-- <div class="col-xl-4 col-lg-6 property_col">
+        <div class="property">
+          <div class="property_image">
+            <img src="/images/property_8.jpg" alt="">
+          </div>
+          <div class="property_body text-center">
+            <div class="property_location">San Francisco</div>
+            <div class="property_title"><a href="property.html">Sea view property</a></div>
+            <div class="property_price">$ 1. 234 981</div>
+          </div>
+          <div class="property_footer d-flex flex-row align-items-center justify-content-start">
+            <div><div class="property_icon"><img src="/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+            <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+            <div><div class="property_icon"><img src="/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Property -->
+      <!-- <div class="col-xl-4 col-lg-6 property_col">
+        <div class="property">
+          <div class="property_image">
+            <img src="/images/property_9.jpg" alt="">
+          </div>
+          <div class="property_body text-center">
+            <div class="property_location">Miami</div>
+            <div class="property_title"><a href="property.html">Sea view property</a></div>
+            <div class="property_price">$ 1. 234 981</div>
+          </div>
+          <div class="property_footer d-flex flex-row align-items-center justify-content-start">
+            <div><div class="property_icon"><img src="/images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
+            <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
+            <div><div class="property_icon"><img src="/images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
+      <div class="container text-center" >
+        <div class="row">
+          <div class="col">
+            <div class="pagination">
+              <ul>
+                Jump To:
+                {{#times pages}}
+                  <li class="active" style="border:1px solid pink; padding:5px 10px;margin-right:10px;"><a href="/article/{{this}}">{{this}}</a></li>
+                {{/times}}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+<!-- Newsletter -->
+
+<div class="newsletter">
+  <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/images/newsletter.jpg" data-speed="0.8"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="newsletter_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
+          <div class="newsletter_title_container">
+            <div class="newsletter_title">Are you buying or selling?</div>
+            <div class="newsletter_subtitle">Search your dream home</div>
+          </div>
+          <div class="newsletter_form_container">
+            <form action="#" class="newsletter_form">
+              <input type="email" class="newsletter_input" placeholder="Your e-mail address" required="required">
+              <button class="newsletter_button">subscribe now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->

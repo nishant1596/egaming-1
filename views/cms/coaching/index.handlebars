@@ -1,0 +1,58 @@
+<div class="container" style="margin-top:80px">
+  <h5>Hello Pankaj, Edit your coachings</h5>
+  <div class="text-center" style="padding:30px;">
+    <a href="/cms/coaching/add/add-coaching" class="btn btn-success">Add a Coaching</a>
+  </div>
+
+  <!-- <h4>All the coachings Listing</h4> -->
+  <div class="row">
+    <div class="container ">
+      <center>
+    <table class="table">
+    <thead>
+      <tr>
+        <th>coaching Name</th>
+        <th>Add Courses</th>
+        <th>View Statistics</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {{#each coaching_list}}
+      <tr>
+        <td>{{coaching_title}}</td>
+        <td><a class="btn btn-success btn-sm" href="/cms/coaching/add/add-courses/{{_id}}">Add Course</a></td>
+        <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#viewStatistics">View Statistics</button>
+          <!-- The Modal -->
+            <div class="modal" id="viewStatistics">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Edit Coaching Details
+                    <a href="/cms/coaching/edit/edit-coaching/{{_id}}">edit</a>
+                  </h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <h4 class="modal-title">Edit Courses
+                    <a href="/cms/coaching/edit/edit-courses/{{_id}}">click here</a>
+                  </h4>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+            </div>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</center>
+</div>
+</div>
+</div>

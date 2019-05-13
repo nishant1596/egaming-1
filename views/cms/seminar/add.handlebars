@@ -1,178 +1,122 @@
 <script src="/ckeditor/ckeditor.js"></script>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
-     <!-- Include external CSS. -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+<!-- Bootstrap Form -->
+<div class="container" style="margin-top:110px">
+  <h3 class="text-center">Welcome Pankaj</h3>
+  <h2>Add Seminars</h2>
+  <!-- <p>The form below contains two input elements; one of type text and one of type password:</p> -->
 
-<!-- Include Editor style. -->
-<link href="https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
-<link href="https://cdn.jsdelivr.net/npm/froala-editor@2.9.5/css/froala_style.min.css" rel="stylesheet" type="text/css" />
-<div class="container-fluid" style="background:white; margin-top:200px;">
-  <div class="container">
-
+  <form action="/cms/seminar/add" method="post">
     <div class="row">
-        <form class="col s12" enctype="multipart/form-data" method="post" action="/cms/seminar/add">
-          <div class="row">
-            <div class="center" style="color:#1A4437; font-size:20px;font-weight:bold;">
-              <span style="border:1px dotted grey;padding:10px;">Add a Seminar</span>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="Game Name" id="seminar_title" name="seminar_title" type="text" class="validate" required>
-              <label for="seminar-title">Seminar Title</label>
-            </div>
-            <div class="">
-              <textarea name="seminar_detail" id="editor1" contenteditable="true"></textarea>
-              <!-- <label for="textarea-seminar">Add Details about the Seminar</label> -->
-            </div>
-            <div class="input-field col s12 m3 l3">
-              <!-- <label for="city_name">City Name</label> -->
-              <select class="browser-default" name="seminar_city" required>
-                <option value="" disabled selected>Choose City</option>
-                <option value="mumbai">Mumbai</option>
-                <option value="delhi">Delhi</option>
-                <option value="calcutta">Calcutta</option>
-                <option value="kochi">Kochi</option>
-                <option value="jaipur">Jaipur</option>
-              </select>
-
-            </div>
-            <div class="col m1 l1"></div>
-            <div class="input-field col s12 m3 l3">
-              <!-- <label for="city_name">City Name</label> -->
-              <select class="browser-default" name="seminar_gamename" required>
-                <option value="" disabled selected>Choose Game</option>
-                <option value="pubg">Pubg</option>
-                <option value="candycrush">Candy Crush</option>
-                <option value="counterstrike">Counter-Strike</option>
-                <option value="fortnight">Fortnite</option>
-                <option value="pop">Prince of Persia</option>
-              </select>
-
-            </div>
-            <div class="col m1 l1"></div>
-            <div class="input-field col s12 m3 l3">
-              <input placeholder="₹" id="seminar_price" type="text" name="seminar_price" class="validate" required>
-              <label for="seminar_price">Seminar Price (₹)</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col s6">
-              <div class="file-field input-field" required>
-               <div class="btn">
-                 <span>Seminar Image</span>
-                 <input type="file" name="seminar_image">
-               </div>
-               <div class="file-path-wrapper">
-                 <input class="file-path validate" type="text">
-               </div>
-             </div>
-            </div>
-            <div class="col s6">
-              Choose Seminar Date<input type="date" name="seminar_date" required>
-            </div>
-          </div>
-          <div class="row">
-            Game Type
-            <div class="col s12">
-
-              <label>
-                <!-- <input type="checkbox" name="chk" value="racing"/> -->
-                <input class="with-gap" name="seminar_gametype" type="radio" value="racing" />
-                <span>Racing</span>
-              </label>
-              <span style="margin-right:50px;"></span>
-              <label>
-                <!-- <input type="checkbox" name="chk" value="shooting"/> -->
-                <input class="with-gap" name="seminar_gametype" type="radio" value="shooting" />
-                <span>Shooting</span>
-              </label>
-              <span style="margin-right:50px;"></span>
-
-              <label>
-                <!-- <input type="checkbox" name="chk" value="strategy"/> -->
-                <input class="with-gap" name="seminar_gametype" type="radio" value="strategy" />
-                <span>Strategy</span>
-              </label>
-              <span style="margin-right:50px;"></span>
-
-              <label>
-                <!-- <input type="checkbox" name="chk" value="puzzle"/> -->
-                <input class="with-gap" name="seminar_gametype" type="radio" value="puzzle" />
-                <span>Puzzle</span>
-              </label>
-              <span style="margin-right:50px;"></span>
-
-              <label>
-                <!-- <input type="checkbox" name="chk" value="role-playing"/> -->
-                <input class="with-gap" name="seminar_gametype" type="radio" value="role-playing" />
-                <span>Role Playing</span>
-              </label>
-              <span style="margin-right:50px;"></span>
-
-              <label>
-                <!-- <input type="checkbox" name="chk" value="arcade"/> -->
-                <input class="with-gap" name="seminar_gametype" type="radio" value="arcade" />
-                <span>Arcade</span>
-              </label>
-              <span style="margin-right:50px;"></span>
-
-              <label>
-                <input class="with-gap" name="seminar_gametype" type="radio" value="action" />
-                <span>Action</span>
-              </label>
-              <span style="margin-right:50px;"></span>
-
-            </div>
-          </div>
-          <div class="row">
-              <div class="input-field col s12">
-                <textarea id="address-seminar" class="materialize-textarea" name="seminar_address" data-length="120" required></textarea>
-                <label for="address_seminar">Address of the Venue</label>
-              </div>
-          </div>
-          <div class="row">
-            <center>
-              <input type="submit" name="seminar_add_submit" class="btn btn-success" value="Add Seminar">
-            </center>
-          </div>
-        </form>
+      <div class="col-12">
+        <div class="form-group">
+          <label for="seminar_title">Seminar Title</label>
+          <input type="text" class="form-control" id="seminar_title" name="seminar_title" required>
+        </div>
       </div>
-
+      <div class="col-12">
+        <div class="form-group">
+          <label for="seminar_detail">Seminar Details (Please do not use picture option here)</label>
+          <textarea class="form-control" id="editor1" name="seminar_detail" required></textarea>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="seminar_date">Seminar Date</label>
+          <input type="date" class="form-control" id="seminar_title" name="seminar_date" required>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="sel1">Game Name of the Seminar</label>
+            <select class="form-control" id="seminar_gamename" name="seminar_gamename" required onclick="">
+              <option value="pubg">Pubg</option>
+              <option value="candy_crush">Candy Crush</option>
+              <option value="fortnite">Fortnite</option>
+              <option value="mortal_combat">Mortal Combat 11</option>
+              <option value="far_cry_city">Far Cry City Dowm</option>
+              <option value="fortnite">Fortnite</option>
+              <option value="prince_of_persia">Prince of Persia:The Forgotten Sand</option>
+            </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="seminar_price">Price of the Seminar</label>
+            <input type="number" name="seminar_price" class="form-control" placeholder="₹ &nbsp;" required>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-4 col-md-4">
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select class="form-control" id="seminar_country" name="seminar_country" required onclick="">
+          <option value="in">India</option>
+          <option value="uk">United Kingdom</option>
+          <option value="sz">Switzerland</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-4">
+      <div class="form-group">
+        <label for="state">State</label>
+        <select class="form-control" id="seminar_state" name="seminar_state" required>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Kerala">Kerala</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-4">
+      <div class="form-group">
+        <label for="city">City</label>
+        <select class="form-control" id="seminar_city" name="seminar_city" required>
+          <option value="bangalore">Bangalore</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="hyderabad">Hyderabad</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+      <div class="form-group">
+        <label for="seminar_gametype">Seminar Gametype</label>
+        <select class="form-control" id="seminar_gametype" name="seminar_gametype" required >
+          <option value="action">Action</option>
+          <option value="racing">Racing</option>
+          <option value="shooting">Shooting</option>
+          <option value="puzzle">Puzzle</option>
+          <option value="startegy">Strategy</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+      <div class="form-group">
+        <label for="seminar_image">Seminar Image</label>
+        <input type="file" name="seminar_image" id="seminar_image" class="form-control form-control-file border" required>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="seminar_tags">Seminar Tags</label>
+        <input type="text" name="seminar_tags" id="seminar_tags" placeholder="Enter Tags for seminar (seperated by commas)" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="seminar_address">Seminar Address</label>
+        <textarea class="form-control" id="seminar_address" name="seminar_address" required></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mb-3">
+    <button type="submit" class="btn btn-success " >Submit</button>
   </div>
 
-  </div>
-  <script src="/materialize/jquery.js" charset="utf-8"></script>
-     <script src="/textOnScreen.js" charset="utf-8"></script>
-     <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
-     <script>
-     $(document).ready(function(){
-        $('.sidenav').sidenav();
-      });
-      $(".dropdown-trigger").dropdown();
-      $(document).ready(function(){
-    // $('.datepicker').datepicker();
-  });
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
-  $(document).ready(function(){
-    $('.collapsible').collapsible();
-  });
-  $(document).ready(function(){
-      $('.modal').modal();
-      $('#modal1').modal();
-    });
+  </form>
 
 
-</script>
+
+</div>
 <script>
   CKEDITOR.replace( 'editor1' );
 </script>

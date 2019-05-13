@@ -24,6 +24,8 @@
   </div>
 </div>
 <!-- Pulse Buton finishes -->
+
+<!--Seminar section starts -->
 	<div class="recent">
 		<div class="container">
 			<div class="row">
@@ -32,23 +34,18 @@
 					<div class="section_subtitle">The "About Seminar Line"</div>
 				</div>
 			</div>
-      <!-- {{#if seminarfetched6}} -->
-
 			<div class="row recent_row">
-
 				<div class="col">
 					<div class="recent_slider_container">
 						<div class="owl-carousel owl-theme recent_slider">
               {{#if seminarfetched6}}
               {{#each seminarfetched6}}
 							<!-- Slide -->
-
 							<div class="owl-item">
 								<div class="recent_item">
 									<div class="recent_item_inner">
 										<div class="recent_item_image">
                       <img src="/uploads/{{seminar_image}}" alt="" height="200px">
-
 											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
 										</div>
 										<div class="recent_item_body text-center">
@@ -65,70 +62,75 @@
 									</div>
 								</div>
 							</div>
-
               {{/each}}
               {{/if}}
-              <!-- {{else}}
-                <div class="">
-                  No Seminars Listed
-                </div>
-              {{/if}} -->
-							<!-- Slide -->
-							<!-- <div class="owl-item">
-								<div class="recent_item">
-									<div class="recent_item_inner">
-										<div class="recent_item_image">
-											<img src="images/property_2.jpg" alt="">
-											<div class="tag_offer property_tag"><a href="#">Offer</a></div>
-										</div>
-										<div class="recent_item_body text-center">
-											<div class="recent_item_location">Los Angeles</div>
-											<div class="recent_item_title"><a href="property.html">2 Floor Town House</a></div>
-											<div class="recent_item_price">$ 1. 234 981</div>
-										</div>
-										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-											<div><div class="recent_icon"><img src="images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
-											<div><div class="recent_icon"><img src="images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
-											<div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
-										</div>
-									</div>
-								</div>
-							</div> -->
-
-							<!-- Slide -->
-							<!-- <div class="owl-item">
-								<div class="recent_item">
-									<div class="recent_item_inner">
-										<div class="recent_item_image">
-											<img src="images/property_3.jpg" alt="">
-											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
-										</div>
-										<div class="recent_item_body text-center">
-											<div class="recent_item_location">Florida</div>
-											<div class="recent_item_title"><a href="property.html">Vacation Home</a></div>
-											<div class="recent_item_price">$ 1. 234 981</div>
-										</div>
-										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-											<div><div class="recent_icon"><img src="images/icon_1.png" alt=""></div><span>650 Ftsq</span></div>
-											<div><div class="recent_icon"><img src="images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div>
-											<div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div>
-										</div>
-									</div>
-								</div>
-							</div> -->
-
-						</div>
-
+        	</div>
 						<div class="recent_slider_nav_container d-flex flex-row align-items-start justify-content-start">
 							<div class="recent_slider_nav recent_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
 							<div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
 						</div>
 					</div>
-					<div class="button recent_button"><a href="seminar/1">see more</a></div>
+					<div class="button recent_button"><a href="/seminar/1">see more</a></div>
 				</div>
 			</div>
 		</div>
 	</div>
+<!--Seminar Section Finishes-->
+
+
+<!--Seminar section starts -->
+	<div class="recent">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title">Recent Competition</div>
+					<div class="section_subtitle">Fight the competition and Beat the Gamers</div>
+				</div>
+			</div>
+			<div class="row recent_row">
+				<div class="col">
+					<div class="recent_slider_container">
+						<div class="owl-carousel owl-theme recent_slider">
+              {{#if competitionfetched6}}
+              {{#each competitionfetched6}}
+							<!-- Slide -->
+							<div class="owl-item">
+								<div class="recent_item">
+									<div class="recent_item_inner">
+										<div class="recent_item_image">
+                      <img src="/uploads/1557235108603-cod.jpg" alt="" height="200px">
+                      {{#ifCond competition_isPremium "on"}}
+											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
+                      {{/ifCond}}
+										</div>
+										<div class="recent_item_body text-center">
+											<div class="recent_item_location">{{competition_gametype}}</div>
+											<div class="recent_item_title"><a href="#">{{competition_title}}</a></div>
+											<div class="button recent_button"><a href="/competition/detail/{{id}}">Join competition</a></div>
+										</div>
+										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-center">
+											<div><span>{{competition_city}}</span></div>
+											<div><div class="recent_icon"><img src="/images/event-calender.png" alt=""></div><span>21/05/2019</span></div>
+                      <div><span>₹ {{competition_price}}</span></div>
+											<!-- <div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div> -->
+										</div>
+									</div>
+								</div>
+							</div>
+              {{/each}}
+              {{/if}}
+        	</div>
+						<div class="recent_slider_nav_container d-flex flex-row align-items-start justify-content-start">
+							<div class="recent_slider_nav recent_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+							<div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+						</div>
+					</div>
+					<div class="button recent_button"><a href="/competition/1">see more</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--competition Section Finishes-->
 
 	<!-- Cities -->
 
@@ -145,52 +147,23 @@
 		<div class="container d-flex flex-row flex-wrap align-items-start justify-content-between" style="margin-top: 50px;">
 
 			<!-- City -->
-
+{{#each articlefetched6}}
 			<div class="city">
 				<img src="images/city_1.jpg" alt="https://unsplash.com/@dnevozhai">
 				<div class="city_overlay">
 					<a href="article/{{id}}" class="d-flex flex-column align-items-center justify-content-center">
-						<div class="city_title">Article Title (not more than 10 words)</div>
+						<div class="city_title">{{article_title}}</div>
 						<div class="city_subtitle">Any article related subtitles</div>
 					</a>
 				</div>
 			</div>
-			<!-- City -->
 
 
-			<!-- City -->
-
-
-			<!-- City -->
-
-
-			<!-- City -->
-			<!-- <div class="city">
-				<img src="images/city_5.jpg" alt="https://unsplash.com/@claudiotrigueros">
-				<div class="city_overlay">
-					<a href="#" class="d-flex flex-column align-items-center justify-content-center">
-						<div class="city_title">Ibiza Town</div>
-						<div class="city_subtitle">Rentals from $450/month</div>
-					</a>
-				</div>
-			</div> -->
-
-			<!-- City -->
-			<!-- <div class="city">
-				<img src="images/city_6.jpg" alt="https://unsplash.com/@andersjilden">
-				<div class="city_overlay">
-					<a href="#" class="d-flex flex-column align-items-center justify-content-center">
-						<div class="city_title">Ibiza Town</div>
-						<div class="city_subtitle">Rentals from $450/month</div>
-					</a>
-				</div>
-			</div> -->
-
-
+{{/each}}
 
 
 		</div>
-		<div class="button recent_button"><a href="#">see more</a></div>
+		<div class="button recent_button"><a href="/article/1">see more</a></div>
 	</div>
 
 	<!-- Testimonials -->

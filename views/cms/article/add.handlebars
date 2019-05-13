@@ -1,0 +1,75 @@
+<script src="/ckeditor/ckeditor.js"></script>
+<!-- Bootstrap Form -->
+<div class="container" style="margin-top:110px">
+  <h3 class="text-center">Welcome Pankaj</h3>
+  <h2>Add Article</h2>
+  <!-- <p>The form below contains two input elements; one of type text and one of type password:</p> -->
+
+  <form action="/cms/article/add" method="post">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="article_title"> Title</label>
+          <input type="text" class="form-control" id="article_title" name="article_title" required>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group">
+          <label for="article_detail">article Details (Please do not use picture option here)</label>
+          <textarea class="form-control" id="editor1" name="article_detail" required></textarea>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group">
+          <label for="article_tags"> Tags (not required)</label>
+          <input type="text" class="form-control" id="article_tags" name="article_tags" required>
+        </div>
+      </div>
+      <!-- <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="article_name">Game Name of the article</label>
+            <select class="form-control" id="article_name" name="article_name" required >
+              <option value="pubg">Pubg</option>
+              <option value="candy_crush">Candy Crush</option>
+              <option value="fortnite">Fortnite</option>
+              <option value="mortal_combat">Mortal Combat 11</option>
+              <option value="far_cry_city">Far Cry City Dowm</option>
+              <option value="fortnite">Fortnite</option>
+              <option value="prince_of_persia">Prince of Persia:The Forgotten Sand</option>
+            </select>
+        </div>
+      </div> -->
+      <!-- <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="article_price">Price of the article</label>
+            <input type="number" name="article_price" class="form-control" placeholder="₹ &nbsp;" required>
+        </div>
+      </div> -->
+  </div>
+  <div class="row">
+
+    <div class="col-12 col-md-4 col-lg-4">
+      <div class="form-group">
+        <label for="article_image">article Image</label>
+        <input type="file" name="article_image" id="article_image" class="form-control form-control-file border" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="checkbox" class="" id="article_isPremium" name="article_isPremium" checked>
+      <label class="custom-control-label" for="article_isPremium">Must Read </label>
+    </div>
+
+  </div>
+  <div class="text-center mb-3">
+    <button type="submit" class="btn btn-success " >Submit</button>
+  </div>
+
+  </form>
+
+
+
+</div>
+<script>
+  CKEDITOR.replace( 'editor1' );
+  $('.your-checkbox').prop('indeterminate', true)
+</script>

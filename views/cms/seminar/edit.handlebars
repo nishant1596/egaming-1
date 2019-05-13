@@ -1,0 +1,126 @@
+<script src="/ckeditor/ckeditor.js"></script>
+<!-- Bootstrap Form -->
+<div class="container" style="margin-top:110px">
+  <h4 class="text-center">Welcome Pankaj</h4>
+  <h2>Edit Seminars</h2>
+  <!-- <p>The form below contains two input elements; one of type text and one of type password:</p> -->
+
+  <form action="/cms/seminar/add" method="post">
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="seminar_title">Seminar Title</label>
+          <input type="text" class="form-control" id="seminar_title" name="seminar_title" required value="{{seminar_edit.seminar_title}}">
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group">
+          <label for="seminar_detail">Seminar Details (Please do not use picture option here)</label>
+          <textarea class="form-control" id="editor1" name="seminar_detail" required>
+            {{seminar_edit.seminar_detail}}
+          </textarea>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="seminar_date">Seminar Date</label>
+          <input type="date" class="form-control" id="seminar_title" name="seminar_date" required value="">
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="sel1">Game Name of the Seminar</label>
+            <select class="form-control" id="seminar_gamename" name="seminar_gamename" required onclick="">
+              <option value="pubg">Pubg</option>
+              <option value="candy_crush">Candy Crush</option>
+              <option value="fortnite">Fortnite</option>
+              <option value="mortal_combat">Mortal Combat 11</option>
+              <option value="far_cry_city">Far Cry City Dowm</option>
+              <option value="fortnite">Fortnite</option>
+              <option value="prince_of_persia">Prince of Persia:The Forgotten Sand</option>
+            </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 col-lg-4">
+        <div class="form-group">
+          <label for="seminar_price">Price of the Seminar</label>
+            <input type="number" name="seminar_price" class="form-control" placeholder="₹ &nbsp;" required value="{{seminar_edit.seminar_price}}">
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-4 col-md-4">
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select class="form-control" id="seminar_country" name="seminar_country" required onclick="">
+          <option value="in">India</option>
+          <option value="uk">United Kingdom</option>
+          <option value="sz">Switzerland</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-4">
+      <div class="form-group">
+        <label for="state">State</label>
+        <select class="form-control" id="seminar_country" name="seminar_state" required>
+          <option value="rj">Rajasthan</option>
+          <option value="uk">Maharashtra</option>
+          <option value="kl">Kerala</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-4">
+      <div class="form-group">
+        <label for="city">City</label>
+        <select class="form-control" id="seminar_city" name="seminar_city" required>
+          <option value="bangalore">Bangalore</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="hyderabad">Hyderabad</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+      <div class="form-group">
+        <label for="seminar_gametype">Seminar Gametype</label>
+        <select class="form-control" id="seminar_gametype" name="seminar_gametype" required >
+          <option value="action">Action</option>
+          <option value="racing">Racing</option>
+          <option value="shooting">Shooting</option>
+          <option value="puzzle">Puzzle</option>
+          <option value="startegy">Strategy</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-4">
+      <div class="form-group">
+        <label for="seminar_image">Seminar Image</label>
+        <input type="file" name="seminar_image" id="seminar_image" class="form-control form-control-file border" required>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="seminar_tags">Seminar Tags</label>
+        <input type="text" name="seminar_tags" id="seminar_tags" placeholder="Enter Tags for seminar (seperated by commas)" class="form-control" value="{{seminar_edit.seminar_tags}}">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="seminar_address">Seminar Address</label>
+        <textarea class="form-control" id="seminar_address" name="seminar_address" required>
+          {{seminar_edit.seminar_address}}
+        </textarea>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mb-3">
+    <button type="submit" class="btn btn-success " >Submit</button>
+  </div>
+
+  </form>
+
+
+
+</div>
+<script>
+  CKEDITOR.replace( 'editor1' );
+</script>

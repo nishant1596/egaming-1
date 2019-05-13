@@ -1,0 +1,45 @@
+<style>
+.button-round{
+  background-color: #4CAF50;
+ border: none;
+ color: white;
+ padding:5px 18px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 16px;
+ margin: 4px 2px;
+ border-radius: 50%;
+ font-size: 30px
+}
+</style>
+<div class="container" style="margin-top:80px">
+  <h5>Hello Pankaj, Edit your Seminars</h5>
+  <div class="text-center">
+    <a href="/cms/seminar/add" class="button-round">+</a>
+  </div>
+
+  <!-- <h4>All the Seminars Listing</h4> -->
+  <div class="row">
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Seminar Name</th>
+        <th>Seminar Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each seminar_list}}
+      <tr>
+        <td>{{seminar_title}}</td>
+        <td><img src="/uploads/{{seminar_img}}" style="height:80px"/></td>
+        <td><a class="btn btn-primary btn-sm" href="/cms/seminar/edit/{{_id}}">Edit</a></td>
+        <td><a class="btn btn-danger btn-sm" href="/cms/seminar/delete/{{_id}}">Delete</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  </div>
+</div>

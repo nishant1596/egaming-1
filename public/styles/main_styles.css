@@ -115,7 +115,7 @@ p a:hover::after
 }
 p::selection
 {
-	
+
 }
 h1{font-size: 48px;}
 h2{font-size: 36px;}
@@ -129,14 +129,14 @@ h1, h2, h3, h4, h5, h6
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-h1::selection, 
-h2::selection, 
-h3::selection, 
-h4::selection, 
-h5::selection, 
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
 h6::selection
 {
-	
+
 }
 .form-control
 {
@@ -439,7 +439,7 @@ section
 }
 .menu_logo a img
 {
-	
+
 }
 .menu_logo .logo_text,
 .menu_logo .logo_sub
@@ -732,11 +732,11 @@ section
 	width: 100%;
 	background: #FFFFFF;
 	padding-top: 105px;
-	padding-bottom: 101px;
+	padding-bottom: 50px;
 }
 .recent_row
 {
-	margin-top: 60px;
+	margin-top: 30px;
 }
 .recent_slider_container
 {
@@ -894,7 +894,7 @@ section
 {
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10px;
+	/* margin-top: 10px; */
 }
 .recent_slider_nav_container
 {
@@ -947,8 +947,8 @@ section
 {
 	width: 100%;
 	background: #eff2f6;
-	padding-top: 105px;
-	padding-bottom: 78px;
+	padding-top: 40px;
+	padding-bottom: 20px;
 }
 .cities_container
 {
@@ -1151,7 +1151,7 @@ section
 }
 .newsletter_content
 {
-	
+
 }
 .newsletter_form_container
 {
@@ -1194,9 +1194,9 @@ section
 	font-weight: 400 !important;
 	font-style: italic;
 	color: #828282 !important;
-} 
+}
 .newsletter_input:-ms-input-placeholder
-{ 
+{
 	font-size: 11px !important;
 	font-weight: 400 !important;
 	font-style: italic;

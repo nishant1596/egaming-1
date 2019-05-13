@@ -14,10 +14,19 @@ const seminarSchema = new Schema({
     type:Date,
     required:true
   },
-  seminar_city:{
-    type:String,
-    required:true
-  },
+
+    seminar_country:{
+      type:String,
+      required:true
+    },
+    seminar_state:{
+      type:String,
+      required:true
+    },
+    seminar_city:{
+      type:String,
+      required:true
+    },
   seminar_gamename:{
     type:String,
     required:true
@@ -31,8 +40,7 @@ const seminarSchema = new Schema({
     required:true
   },
   seminar_image:{
-    type:String,
-    required:true
+    type:String
   },
   seminar_post_publish_date:{
     type:Date,
@@ -42,6 +50,10 @@ const seminarSchema = new Schema({
   seminar_address:{
     type:String,
     required:true
+  },
+  seminar_tags:{
+    type:Array,
+    required:false
   }
 });
 mongoose.model('seminarModel',seminarSchema);
