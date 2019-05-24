@@ -3,7 +3,8 @@
 <link rel="stylesheet" href="/styles/mycss.css">
 
 <center>
-  <div class="front-ui-background container" style="margin-top:100px;">
+  <div class="front-ui-background container">
+
     <div class="">
       <img src="/images/background1.png" class="e-gaming-logo">
     </div>
@@ -34,6 +35,7 @@
 					<div class="section_subtitle">The "About Seminar Line"</div>
 				</div>
 			</div>
+      {{message.info}}
 			<div class="row recent_row">
 				<div class="col">
 					<div class="recent_slider_container">
@@ -45,13 +47,14 @@
 								<div class="recent_item">
 									<div class="recent_item_inner">
 										<div class="recent_item_image">
-                      <img src="/uploads/{{seminar_image}}" alt="" height="200px">
+                      <!-- <img src="/uploads/{{seminar_image}}" alt="" height="200px"> -->
+                      <img src="/uploads/1557207744749-cs.jpg" alt="" height="200px">
 											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
 										</div>
 										<div class="recent_item_body text-center">
 											<div class="recent_item_location">{{seminar_gametype}}</div>
 											<div class="recent_item_title"><a href="property.html">{{seminar_title}}</a></div>
-											<div class="button recent_button"><a href="/seminar/detail/{{id}}">Join Seminar</a></div>
+											<div class="button recent_button"><a href="/seminar/detail/{{id}}">View Details</a></div>
 										</div>
 										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-center">
 											<div><span>{{seminar_city}}</span></div>
@@ -106,7 +109,7 @@
 										<div class="recent_item_body text-center">
 											<div class="recent_item_location">{{competition_gametype}}</div>
 											<div class="recent_item_title"><a href="#">{{competition_title}}</a></div>
-											<div class="button recent_button"><a href="/competition/detail/{{id}}">Join competition</a></div>
+											<div class="button recent_button"><a href="/competition/detail/{{id}}">View Details</a></div>
 										</div>
 										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-center">
 											<div><span>{{competition_city}}</span></div>
@@ -151,7 +154,7 @@
 			<div class="city">
 				<img src="images/city_1.jpg" alt="https://unsplash.com/@dnevozhai">
 				<div class="city_overlay">
-					<a href="article/{{id}}" class="d-flex flex-column align-items-center justify-content-center">
+					<a href="article/detail/{{id}}" class="d-flex flex-column align-items-center justify-content-center">
 						<div class="city_title">{{article_title}}</div>
 						<div class="city_subtitle">Any article related subtitles</div>
 					</a>
@@ -218,14 +221,14 @@
 	<!-- Newsletter -->
 
 	<div class="newsletter">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/newsletter.jpg" data-speed="0.8"></div>
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/footer_main.jpg" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="newsletter_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
 						<div class="newsletter_title_container">
-							<div class="newsletter_title">Are you buying or selling?</div>
-							<div class="newsletter_subtitle">Search your dream home</div>
+							<div class="newsletter_title">Subscribe to the Egaming</div>
+							<div class="newsletter_subtitle">We'll notify you of new seminars and competitions</div>
 						</div>
 						<div class="newsletter_form_container">
 							<form action="#" class="newsletter_form">

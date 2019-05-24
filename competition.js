@@ -102,13 +102,13 @@ router.post('/detail/sendemail/:id', function (req, res) {
           port: 465,
           secure: true,
           auth: {
-              user: 'happysoni777@gmail.com',
-              pass: 'Nokiax123@'
+              user: 'mytestupwork@gmail.com',
+              pass: 'nishantadmin'
           }
       });
       let mailOptions = {
           from:  `Egaming - competition inquiry : ${req.body.email}`, // sender address
-          to: 'happysoni777@gmail.com', // list of receivers
+          to: 'pankaj.bansal@tourdeguide.com', // list of receivers
           subject: `Hi, My name is ${req.body.name} and I want to know about this competition`, // Subject line
           // text: req.body.body, // plain text body
           html: `<b>competition Id </b> : <b style="color:green"> ${req.params.id} </b> <br/>

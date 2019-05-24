@@ -67,12 +67,7 @@ router.get('/:page',(req,res)=>{
 }
 });
 
-function sendEmail() {
-
-}
-
 router.get("/detail/:id",(req,res)=>{
-
   coachingFetch.findById(req.params.id)
   .then(coaching_detail=>{
     console.log(coaching_detail.courses_offer);
@@ -92,13 +87,13 @@ router.post('/detail/sendemail/:id', function (req, res) {
           port: 465,
           secure: true,
           auth: {
-              user: 'happysoni777@gmail.com',
-              pass: 'Nokiax123@'
+              user: 'mytestupwork@gmail.com',
+              pass: 'nishantadmin'
           }
       });
       let mailOptions = {
           from:  `Egaming - coaching inquiry : ${req.body.email}`, // sender address
-          to: 'happysoni777@gmail.com', // list of receivers
+          to: 'pankaj.bansal@tourdeguide.com', // list of receivers
           subject: `Hi, My name is ${req.body.name} and I want to know about this coaching`, // Subject line
           // text: req.body.body, // plain text body
           html: `<b>coaching Id </b> : <b style="color:green"> ${req.params.id} </b> <br/>
@@ -124,5 +119,42 @@ router.post('/detail/sendemail/:id', function (req, res) {
       });
 
       //Adding coaching
+//coaching
+
+router.get('/courses/:id',(req,res)=>{
+  coachingFetch.findById({_id:req.params.id})
+  .then(fetchCourse=>{
+    let courses = fetchCourse.courses_offer
+    let courseCount=(fetchCourse.courses_offer).length
+    console.log(courseCount);
+    res.render('courses',{
+      courses:courses,
+      fetchCourse:fetchCourse,
+      courseCount:courseCount
+    })
+  })
+})
+// router.get('/courses/detail/:id',(req,res)=>{
+//   coachingFetch.find({"courses_offer._id":req.params.id})
+//   .then(courseDetail=>{
+//     res.render('course_detail')
+//   })
+// })
+
+
+router.get('/courses/course-detail/:id',(req,res)=>{
+  coachingFetch.findOne({"courses_offer._id":req.params.id})
+  .then(fetchCourseDetail=>{
+    let courseDetail=fetchCourseDetail.courses_offer
+    courseDetail.findOne({"courses_offer._id":req.params.id})
+    .then(courseDetail1=>{
+      console.log(courseDetail1);
+    })
+    // res.render('course-detail',{
+    //   courseDetail:courseDetail
+    // })
+  })
+})
+
 
 module.exports=router;

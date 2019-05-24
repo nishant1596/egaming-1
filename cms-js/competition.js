@@ -5,12 +5,12 @@ const fs=require('fs');
 const countrystate=require('countrycitystatejson');
 require('../models/competition');
 const competition=mongoose.model('competitionModel');
-
+const {ensureAuthenticated}=require('../config/auth');
 
 //seting file path for deletion
 let filenamepath = './public/uploads/';
 
-router.delete('/delete/:id',(req,res)=>{
+router.delete('/delete/:id',ensureAuthenticated,(req,res)=>{
   // competition.findOne({_id:req.params.id})
   // .then(finded=>{
   //   console.log(finded.competition_image);
@@ -32,7 +32,7 @@ router.delete('/delete/:id',(req,res)=>{
 
 
 
-router.get('/',(req,res)=>{
+router.get('/',ensureAuthenticated,(req,res)=>{
 
   competition.find({}).sort({"_id":-1})
   .then(competition_list=>{
@@ -43,7 +43,7 @@ router.get('/',(req,res)=>{
 });
 
 
-router.get('/edit/:id',(req,res)=>{
+router.get('/edit/:id',ensureAuthenticated,(req,res)=>{
   competition.findOne({_id:req.params.id})
   .then(competition_edit=>{
     res.render('cms/competition/edit',{
@@ -52,7 +52,7 @@ router.get('/edit/:id',(req,res)=>{
   })
 })
 
-router.put('/:id',(req,res)=>{
+router.put('/:id',ensureAuthenticated,(req,res)=>{
 
   // let file=req.files.competition_image;
   // let filename=file.name;
@@ -92,7 +92,7 @@ router.put('/:id',(req,res)=>{
 //   console.log('hello');
 // }
 
-router.get('/add',(req,res)=>{
+router.get('/add',ensureAuthenticated,(req,res)=>{
   res.render('cms/competition/add',{
     getCountry:countrystate.getCountries(),
     getStateByCountry:countrystate.getStatesByShort('IN'),
@@ -100,7 +100,7 @@ router.get('/add',(req,res)=>{
   });
 });
 
-router.post('/add',(req,res)=>{
+router.post('/add',ensureAuthenticated,(req,res)=>{
   // let file=req.files.competition_image;
   // let filename=file.name;
   // console.log(filename);

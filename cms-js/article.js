@@ -5,12 +5,12 @@ const fs=require('fs');
 const countrystate=require('countrycitystatejson');
 require('../models/article');
 const article=mongoose.model('articleModel');
-
+const {ensureAuthenticated}=require('../config/auth');
 
 //seting file path for deletion
 let filenamepath = './public/uploads/';
 
-router.delete('/delete/:id',(req,res)=>{
+router.delete('/delete/:id',ensureAuthenticated,(req,res)=>{
   article.deleteOne({_id:req.params.id})
   .then(deletingarticle=>{
     console.log('deleted from mongodb');
@@ -20,8 +20,7 @@ router.delete('/delete/:id',(req,res)=>{
 
 
 
-router.get('/',(req,res)=>{
-
+router.get('/',ensureAuthenticated,(req,res)=>{
   article.find({}).sort({"_id":-1})
   .then(article_list=>{
     res.render('cms/article/index',{
@@ -31,16 +30,16 @@ router.get('/',(req,res)=>{
 });
 
 
-router.get('/edit/:id',(req,res)=>{
+router.get('/edit/:id',ensureAuthenticated,(req,res)=>{
   article.findOne({_id:req.params.id})
   .then(article_edit=>{
     res.render('cms/article/edit',{
-      article_edit:article_edit
+      article_edit:article_edit,
     })
   })
 })
 
-router.put('/:id',(req,res)=>{
+router.put('/:id',ensureAuthenticated,(req,res)=>{
 
   article.findOne({_id:req.params.id})
   .then(editing_article=>{
@@ -58,6 +57,7 @@ router.put('/:id',(req,res)=>{
     editing_article.save()
     .then(sem=>{
       console.log('article edited');
+      req.flash('success_msg','Article Updated Successfully')
       res.redirect('/cms/article')
     })
   })
@@ -65,19 +65,20 @@ router.put('/:id',(req,res)=>{
 // let countryName=countrystate.getCountries()
 
 
-// let getco=function(){
-//   console.log('hello');
-// }
+function getco(){
+  console.log('hello');
+}
 
-router.get('/add',(req,res)=>{
+router.get('/add',ensureAuthenticated,(req,res)=>{
   res.render('cms/article/add',{
     getCountry:countrystate.getCountries(),
+    getcom:getco,
     getStateByCountry:countrystate.getStatesByShort('IN'),
     getCityByState:countrystate.getCities('IN',countrystate.getStatesByShort('IN'))
   });
 });
 
-router.post('/add',(req,res)=>{
+router.post('/add',ensureAuthenticated,(req,res)=>{
   // let file=req.files.article_image;
   // let filename=file.name;
   // console.log(filename);
@@ -106,6 +107,7 @@ router.post('/add',(req,res)=>{
   new article(newarticle)
   .save()
   .then(articles=>{
+    req.flash('success_msg','Article Added Successfully')
     console.log('data is saved successfully');
     res.redirect('/article/1')
   })

@@ -4,13 +4,20 @@ const mongoose=require('mongoose');
 const fs=require('fs');
 const countrystate=require('countrycitystatejson');
 require('../models/seminar');
+
+//Load Authentication (auth module)
+const {ensureAuthenticated}=require('../config/auth');
+
+
 const Seminar=mongoose.model('seminarModel');
 
+const upload = require('./aws-s3');
+const singleUpload = upload.single('image')
 
 //seting file path for deletion
 let filenamepath = './public/uploads/';
 
-router.delete('/delete/:id',(req,res)=>{
+router.delete('/delete/:id',ensureAuthenticated,(req,res)=>{
   Seminar.findOne({_id:req.params.id})
   .then(finded=>{
     console.log(finded.seminar_image);
@@ -32,7 +39,7 @@ router.delete('/delete/:id',(req,res)=>{
 
 
 
-router.get('/',(req,res)=>{
+router.get('/',ensureAuthenticated,(req,res)=>{
 
   Seminar.find({}).sort({"_id":-1})
   .then(seminar_list=>{
@@ -43,7 +50,7 @@ router.get('/',(req,res)=>{
 });
 
 
-router.get('/edit/:id',(req,res)=>{
+router.get('/edit/:id',ensureAuthenticated,(req,res)=>{
   Seminar.findOne({_id:req.params.id})
   .then(seminar_edit=>{
     res.render('cms/seminar/edit',{
@@ -52,7 +59,7 @@ router.get('/edit/:id',(req,res)=>{
   })
 })
 
-router.put('/:id',(req,res)=>{
+router.put('/:id',ensureAuthenticated,(req,res)=>{
   Seminar.findOne({_id:req.params.id})
   .then(editing_seminar=>{
     editing_seminar.seminar_title=req.body.seminar_title,
@@ -61,7 +68,7 @@ router.put('/:id',(req,res)=>{
     editing_seminar.seminar_gamename=req.body.seminar_gamename,
     editing_seminar.seminar_price=req.body.seminar_price,
     editing_seminar.seminar_gametype=req.body.seminar_gametype,
-    // seminar_image:req.body.seminar_image,
+    seminar_image=req.body.seminar_image,
     editing_seminar.seminar_address=req.body.seminar_address,
     editing_seminar.seminar_tags=req.body.seminar_tags,
     editing_seminar.seminar_country=req.body.seminar_country,
@@ -81,7 +88,7 @@ router.put('/:id',(req,res)=>{
 //   console.log('hello');
 // }
 
-router.get('/add',(req,res)=>{
+router.get('/add',ensureAuthenticated,(req,res)=>{
   res.render('cms/seminar/add',{
     getCountry:countrystate.getCountries(),
     getStateByCountry:countrystate.getStatesByShort('IN'),
@@ -89,37 +96,29 @@ router.get('/add',(req,res)=>{
   });
 });
 
-router.post('/add',(req,res)=>{
-  // let file=req.files.seminar_image;
-  // let filename=file.name;
-  // console.log(filename);
-  // let dirUploads='./public/uploads/';
-  // let uploadingFileName=Date.now()+'-'+filename;
-  // file.mv(dirUploads+uploadingFileName,(err)=>{
-  //   if (err) {
-  //     return err;
-  //   }
-  // });
-  console.log(req.files);
-  const newSeminar = {
-    seminar_title:req.body.seminar_title,
-    seminar_detail:req.body.seminar_detail,
-    seminar_date:req.body.seminar_date,
-    seminar_gamename:req.body.seminar_gamename,
-    seminar_price:req.body.seminar_price,
-    seminar_gametype:req.body.seminar_gametype,
-    // seminar_image:req.body.seminar_image,
-    seminar_address:req.body.seminar_address,
-    seminar_tags:req.body.seminar_tags,
-    seminar_country:req.body.seminar_country,
-    seminar_state:req.body.seminar_state,
-    seminar_city:req.body.seminar_city
-  }
-  new Seminar(newSeminar)
-  .save()
-  .then(seminars=>{
-    console.log('data is saved successfully');
-    res.redirect('/seminar/1')
-  })
+router.post('/add',ensureAuthenticated,(req,res)=>{
+
+//   const newSeminar = {
+//     seminar_title:req.body.seminar_title,
+//     seminar_detail:req.body.seminar_detail,
+//     seminar_date:req.body.seminar_date,
+//     seminar_gamename:req.body.seminar_gamename,
+//     seminar_price:req.body.seminar_price,
+//     seminar_gametype:req.body.seminar_gametype,
+//     seminar_address:req.body.seminar_address,
+//     seminar_tags:req.body.seminar_tags,
+//     seminar_country:req.body.seminar_country,
+//     seminar_state:req.body.seminar_state,
+//     seminar_city:req.body.seminar_city
+//   }
+    singleUpload(req, res, function(err, some) {
+    if (err) {
+      return res.status(422).send({errors: [{title: 'Image Upload Error', detail: err.message}] });
+    }
+    return res.send(req.file)
+  });
 })
+
+
+
 module.exports=router;

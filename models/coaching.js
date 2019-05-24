@@ -7,7 +7,7 @@ const courseDetail = new Schema({
   //   default:mongoose.Types.ObjectId()
   // },
   course_name:{
-    type:String,
+    type:String
   },
   course_duration:{
     type:Number
@@ -34,15 +34,14 @@ var coachingSchema=new Schema({
   coaching_title:{
     type:String
   },
-  coaching_id:{
-    type:String,
-    default:mongoose.Types.ObjectId()
-  },
   coaching_detail:{
     type:String
   },
   courses_offer:[courseDetail],
   coaching_address:{
+    type:String
+  },
+  coaching_featureIt:{
     type:String
   }
 })

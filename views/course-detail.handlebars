@@ -12,29 +12,31 @@
 						<!-- News Post -->
 						<div class="news_post">
 							<div class="news_post_title_container d-flex flex-row align-items-center justify-content-start">
-								<div><div class="news_post_date_container d-flex flex-column align-items-center justify-content-center">
-									<div class="news_post_day">{{seminar_detail_date_num}}</div>
-									<div class="news_post_month">{{seminar_detail_date_month}}&nbsp;&#39;{{seminar_detail_date_year}}</div>
-								</div></div>
+								<!-- <div><div class="news_post_date_container d-flex flex-column align-items-center justify-content-center">
+									<div class="news_post_day">{{coaching_detail_date_num}}</div>
+									<div class="news_post_month">{{coaching_detail_date_month}}&nbsp;&#39;{{coaching_detail_date_year}}</div>
+								</div></div> -->
 								<div class="news_post_title_content">
-									<div class="news_post_title"><a href="#">{{seminar_detail.seminar_title}}</a></div>
+									<div class="news_post_title"><a href="#">{{courseDetail.course_price}}</a></div>
 									<div class="news_post_info">
 										<ul>
-											<li>₹ &nbsp;<a href="#"> {{seminar_detail.seminar_price}}</a></li>
-											<li><a href="#">2 hours</a></li>
-											<li>Tags : <a href="#">pubg, game, seminar</a></li>
+
 										</ul>
 									</div>
 								</div>
 							</div>
-							<div class="news_post_image"><img src="/images/footer_main.jpg" alt=""></div>
+							<div class="news_post_image"><img src="/uploads/1557235108603-cod.jpg" alt=""></div>
+							<div class="sidebar_title	mt-5">
+								See All the Courses offered by {{coaching_detail.coaching_title}}
+								<a href="/coaching/courses/{{coaching_detail._id}}">click here</a>
+							</div>
 							<div class="news_post_text">
-								<p>{{{seminar_detail.seminar_detail}}}</p>
+								<p>{{{coaching_detail.coaching_detail}}}</p>
 							</div>
 						</div>
 					</div>
 					<div class="button recent_button" data-toggle="modal" data-target="#emailModal">
-						<a href="#">Join Seminar Now</a>
+						<a href="#">Join coaching Now</a>
 					</div>
 					<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					  <div class="modal-dialog" role="document">
@@ -46,7 +48,7 @@
 					        </button>
 					      </div>
 					      <div class="modal-body">
-									<form action="/seminar/detail/sendemail/{{seminar_detail._id}}" class="was-validated" method="post">
+									<form action="/coaching/detail/sendemail/{{coaching_detail._id}}" class="was-validated" method="post">
 									  <div class="form-group">
 									    <label for="uname">Full-Name</label>
 									    <input type="text" class="form-control" id="uname" placeholder="Enter your FullName" name="name" required>
@@ -67,22 +69,22 @@
 									  </div>
 									  <div class="form-group form-check">
 									    <label class="form-check-label">
-									      <input class="form-check-input" type="checkbox" name="remember"  checked> I want to subscribe to the upcoming seminars
+									      <input class="form-check-input" type="checkbox" name="remember"  checked> I want to subscribe to the upcoming coachings
 									      <div class="valid-feedback">Valid.</div>
 									      <!-- <div class="invalid-feedback">Check this checkbox to continue.</div> -->
 									    </label>
 									  </div>
 										<div class="form-group">
-									    <input type="hidden" class="form-control" id="seminar_title" placeholder="e.g. +91xxxxxxxx89" name="seminar_title" value="{{seminar_detail.seminar_title}}">
-											<!-- <label for="seminar_title">Contact Number (optional):</label> -->
+									    <input type="hidden" class="form-control" id="coaching_title" placeholder="e.g. +91xxxxxxxx89" name="coaching_title" value="{{coaching_detail.coaching_title}}">
+											<!-- <label for="coaching_title">Contact Number (optional):</label> -->
 									  </div>
 										<div class="form-group">
-									    <!-- <label for="seminar_date">Contact Number (optional):</label> -->
-									    <input type="hidden" class="form-control" id="pwd" placeholder="e.g. +91xxxxxxxx89" name="seminar_date" value="{{seminar_detail.seminar_date}}">
+									    <!-- <label for="coaching_date">Contact Number (optional):</label> -->
+									    <input type="hidden" class="form-control" id="pwd" placeholder="e.g. +91xxxxxxxx89" name="coaching_date" value="{{coaching_detail.coaching_date}}">
 									  </div>
 										<div class="form-group">
-									    <!-- <label for="seminar_date">Contact Number (optional):</label> -->
-									    <input type="hidden" class="form-control" id="pwd" placeholder="e.g. +91xxxxxxxx89" name="seminar_price" value="{{seminar_detail.seminar_price}}">
+									    <!-- <label for="coaching_date">Contact Number (optional):</label> -->
+									    <input type="hidden" class="form-control" id="pwd" placeholder="e.g. +91xxxxxxxx89" name="coaching_price" value="{{coaching_detail.coaching_price}}">
 									  </div>
 
 									  <button type="submit" class="btn btn-primary">Submit</button>
@@ -121,18 +123,18 @@
 
 						<!-- Categories -->
 						<div class="categories">
-							<div class="sidebar_title">Seminar Details</div>
+							<div class="sidebar_title">coaching Details</div>
 							<div class="categories_list">
 								<ul>
 									<li><a href="#" class="d-flex flex-row align-items-start justfy-content-start">
 										<div>id </div>
-										<div class="ml-auto">{{seminar_detail._id}}</div>
+										<div class="ml-auto">{{coaching_detail._id}}</div>
 									</a></li>
 									<li><a href="#" class="d-flex flex-row align-items-start justfy-content-start">
 										<div>Address</div>
-										<div class="ml-auto">{{seminar_detail.seminar_address}}</div>
+										<div class="ml-auto">{{coaching_detail.coaching_address}}</div>
 									</a></li>
-									<li><a href="#" class="d-flex flex-row align-items-start justfy-content-start">
+									<!-- <li><a href="#" class="d-flex flex-row align-items-start justfy-content-start">
 										<div>City</div>
 										<div class="ml-auto">Mumbai</div>
 									</a></li>
@@ -143,30 +145,27 @@
 									<li><a href="#" class="d-flex flex-row align-items-start justfy-content-start">
 										<div>Country</div>
 										<div class="ml-auto">India</div>
-									</a></li>
+									</a></li> -->
 								</ul>
 							</div>
 						</div>
 
 						<!-- Latest Posts -->
 						<div class="sidebar_latest">
-							<div class="sidebar_title">Recommended Seminars</div>
+							<div class="sidebar_title">Recommended Coachings</div>
 							<div class="sidebar_latest_posts">
 
 								<!-- Recent Post -->
-								{{#each seminarRecom}}
+								<!-- {{#each coaching_course}}
 								<div class="latest_post d-flex flex-row align-items-start justify-content-start">
+									<div><div class="latest_post_image"><img src="/images/city_3.jpg" alt=""></div></div>
+									<div class="ml-auto">
 
-									<div><div class="latest_post_image"><img src="/uploads/{{seminar_image}}" alt=""></div></div>
-									<div class="latest_post_content">
-										<!-- <div class="latest_post_date"><a href="#">April 02, 2018</a></div> -->
-										<div class="latest_post_title"><a href="#">{{seminar_title}}</a></div>
-										<div class="latest_post_author">₹ <a href="#">{{seminar_price}}</a></div>
-										<div class="latest_post_author">location <a href="#">{{seminar_city}}</a></div>
+	                  <div class="latest_post_title "><a href="/coaching/course/{{_id}}">{{course_name}}</a></div>
+										<div class="latest_post_title "><a href="/coaching/course/{{_id}}">{{course_price}}</a></div>
 									</div>
-
 								</div>
-								{{/each}}
+								{{/each}} -->
 								<!-- Recent Post -->
 
 							</div>

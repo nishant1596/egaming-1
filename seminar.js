@@ -1,28 +1,15 @@
 const express=require('express');
 const router=express.Router();
 const mongoose=require('mongoose');
-const sgMail = require('@sendgrid/mail');
 const nodeMailer=require('nodemailer');
 const bodyParser = require('body-parser');
 
+
+
+
+
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
-
-sgMail.setApiKey('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');
-
-// const msg = {
-//   to: 'happysoni777@gmail.com',
-//   from: 'nighty375@gmail.com',
-//   subject: 'seminar related query',
-//   text: {
-//     'title':'seminar',
-//     'seminarId':'12569874569',
-//     'seminar_title':'This is a Pubg Seminar'
-//   },
-//   html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-// };
-// sgMail.send(msg)
-
 
 
 require('./models/seminar');
@@ -117,8 +104,8 @@ router.post('/detail/sendemail/:id', function (req, res) {
           port: 465,
           secure: true,
           auth: {
-              user: 'happysoni777@gmail.com',
-              pass: 'Nokiax123@'
+              user: 'mytestupwork@gmail.com',
+              pass: 'nishantadmin'
           }
       });
       let mailOptions = {

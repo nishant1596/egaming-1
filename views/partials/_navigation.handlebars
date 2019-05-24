@@ -42,12 +42,49 @@
   			<ul>
   				<li class="menu_item"><a href="/">Home</a></li>
   				<li class="menu_item"><a href="/seminar/1">Seminars</a></li>
-					<li class="menu_item"><a href="/cms/seminar/add">CMS</a></li>
   				<li class="menu_item"><a href="#">Competition</a></li>
   				<li class="menu_item"><a href="#">Sponsor</a></li>
   				<li class="menu_item"><a href="#">Article</a></li>
   				<li class="menu_item"><a href="#">Coaching</a></li>
+					<li class="menu_item"><a href="#">{{user}}</a></li>
+
+					<li class="menu_item"><a href="#" data-toggle="modal" data-target="#myModal">CMS (for Admin)</a></li>
+					{{#if user}}
+					<li class="menu-item" href="/logout" data-toggle="modal" data-target="#myModal">Logout</li>
+					{{/if}}
   			</ul>
   		</div>
-  		<div class="menu_phone"><span>call us: </span>652 345 3222 11</div>
+  		<div class="menu_phone"><span>call us: </span>+91-8779797466</div>
   	</div>
+		<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">CMS</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <a href="/cms/seminar">Seminar</a>
+      </div>
+			<div class="modal-body">
+        <a href="/cms/competition">Competition</a>
+      </div>
+			<div class="modal-body">
+        <a href="/cms/coaching">Coaching</a>
+      </div>
+			<div class="modal-body">
+        <a href="/cms/article">Article</a>
+      </div>
+
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div> -->
+
+    </div>
+  </div>
+</div>
