@@ -111,7 +111,7 @@ const devURI='mongodb://localhost/seminar_node'
 
 
 
-mongoose.connect(devURI, {useNewUrlParser: true});
+mongoose.connect(mongoURI, {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'database connection error:'));
 db.once('open', function() {
