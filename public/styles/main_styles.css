@@ -731,8 +731,8 @@ section
 {
 	width: 100%;
 	background: #FFFFFF;
-	padding-top: 105px;
-	padding-bottom: 50px;
+	padding-top: 25px;
+	padding-bottom: 25px;
 }
 .recent_row
 {
@@ -946,7 +946,7 @@ section
 .cities
 {
 	width: 100%;
-	background: #eff2f6;
+	background: #ffffff;
 	padding-top: 40px;
 	padding-bottom: 20px;
 }
@@ -1236,16 +1236,16 @@ section
 11. Footer
 *********************************/
 
-.footer
+/* .footer
 {
 	width: 100%;
-}
+} */
 .footer_main
 {
-	width: 100%;
+	/* width: 100%; */
 	background: #ff5757;
-	padding-top: 80px;
-	padding-bottom: 72px;
+	/* padding-top: 80px;
+	padding-bottom: 72px; */
 }
 .footer_about_text
 {
@@ -1253,7 +1253,7 @@ section
 	font-weight: 500;
 	font-style: italic;
 	color: #FFFFFF;
-	margin-top: 39px;
+	/* margin-top: 39px; */
 }
 .footer_title
 {

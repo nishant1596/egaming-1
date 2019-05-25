@@ -27,12 +27,12 @@
 <!-- Pulse Buton finishes -->
 
 <!--Seminar section starts -->
-	<div class="recent">
+	<div class="recent" style="background:#eff2f6;">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="section_title">Recent Seminars</div>
-					<div class="section_subtitle">The "About Seminar Line"</div>
+					<div class="section_subtitle">Learn&nbsp;|&nbsp; Improve&nbsp; |&nbsp; Grow</div>
 				</div>
 			</div>
       {{message.info}}
@@ -45,24 +45,27 @@
 							<!-- Slide -->
 							<div class="owl-item">
 								<div class="recent_item">
+                  <a href="/seminar/detail/{{id}}">
 									<div class="recent_item_inner">
 										<div class="recent_item_image">
                       <!-- <img src="/uploads/{{seminar_image}}" alt="" height="200px"> -->
                       <img src="/uploads/1557207744749-cs.jpg" alt="" height="200px">
-											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
+											<!-- <div class="tag_featured property_tag"><a href="#">Featured</a></div> -->
 										</div>
 										<div class="recent_item_body text-center">
-											<div class="recent_item_location">{{seminar_gametype}}</div>
-											<div class="recent_item_title"><a href="property.html">{{seminar_title}}</a></div>
-											<div class="button recent_button"><a href="/seminar/detail/{{id}}">View Details</a></div>
+											<div class="recent_item_location">{{seminar_gamename}}</div>
+											<div class="recent_item_title"><a href="/seminar/detail/{{id}}">{{seminar_title}}</a></div>
+											<!-- <div class="button recent_button"><a href="/seminar/detail/{{id}}">View Details</a></div> -->
 										</div>
 										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-center">
 											<div><span>{{seminar_city}}</span></div>
-											<div><div class="recent_icon"><img src="/images/event-calender.png" alt=""></div><span>21/05/2019</span></div>
+											<div><div class="recent_icon"><img src="/images/event-calender.png" alt=""></div>{{formatTime seminar_date "DD/MM/YYYY"}}<span>
+                      </span></div>
                       <div><span>₹ {{seminar_price}}</span></div>
 											<!-- <div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div> -->
 										</div>
 									</div>
+                </a>
 								</div>
 							</div>
               {{/each}}
@@ -80,44 +83,44 @@
 	</div>
 <!--Seminar Section Finishes-->
 
-
-<!--Seminar section starts -->
-	<div class="recent">
+<!--Articles Starts -->
+	<div class="recent" style="background:#ffffff;">
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="section_title">Recent Competition</div>
-					<div class="section_subtitle">Fight the competition and Beat the Gamers</div>
+					<div class="section_title">Articles</div>
+					<div class="section_subtitle">Get to know about new skills</div>
 				</div>
 			</div>
+      {{message.info}}
 			<div class="row recent_row">
 				<div class="col">
 					<div class="recent_slider_container">
 						<div class="owl-carousel owl-theme recent_slider">
-              {{#if competitionfetched6}}
-              {{#each competitionfetched6}}
+              {{#if articlefetched6}}
+              {{#each articlefetched6}}
 							<!-- Slide -->
 							<div class="owl-item">
 								<div class="recent_item">
+                  <a href="/article/detail/{{id}}">
 									<div class="recent_item_inner">
 										<div class="recent_item_image">
-                      <img src="/uploads/1557235108603-cod.jpg" alt="" height="200px">
-                      {{#ifCond competition_isPremium "on"}}
-											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
-                      {{/ifCond}}
+                      <!-- <img src="/uploads/{{seminar_image}}" alt="" height="200px"> -->
+                      <img src="/uploads/1557207744749-cs.jpg" alt="" height="200px">
+											<!-- <div class="tag_featured property_tag"><a href="#">Featured</a></div> -->
 										</div>
 										<div class="recent_item_body text-center">
-											<div class="recent_item_location">{{competition_gametype}}</div>
-											<div class="recent_item_title"><a href="#">{{competition_title}}</a></div>
-											<div class="button recent_button"><a href="/competition/detail/{{id}}">View Details</a></div>
+											<!-- <div class="recent_item_location">{{seminar_gamename}}</div> -->
+											<div class="recent_item_title"><a href="/seminar/detail/{{id}}">{{article_title}}</a></div>
+											<!-- <div class="button recent_button"><a href="/seminar/detail/{{id}}">View Details</a></div> -->
 										</div>
-										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-center">
-											<div><span>{{competition_city}}</span></div>
+										<!-- <div class="recent_item_footer d-flex flex-row align-items-center justify-content-center">
+											<div><span>{{seminar_city}}</span></div>
 											<div><div class="recent_icon"><img src="/images/event-calender.png" alt=""></div><span>21/05/2019</span></div>
-                      <div><span>₹ {{competition_price}}</span></div>
-											<!-- <div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div> -->
-										</div>
+                      <div><span>₹ {{seminar_price}}</span></div>
+										</div> -->
 									</div>
+                </a>
 								</div>
 							</div>
               {{/each}}
@@ -128,95 +131,125 @@
 							<div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
 						</div>
 					</div>
-					<div class="button recent_button"><a href="/competition/1">see more</a></div>
+					<div class="button recent_button"><a href="/seminar/1">see more</a></div>
 				</div>
 			</div>
 		</div>
 	</div>
-<!--competition Section Finishes-->
+<!--Seminar Section Finishes-->
 
-	<!-- Cities -->
-
-	<div class="cities">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="section_title">Articles</div>
-					<div class="section_subtitle">Articles of your choice</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="container d-flex flex-row flex-wrap align-items-start justify-content-between" style="margin-top: 50px;">
-
-			<!-- City -->
-{{#each articlefetched6}}
-			<div class="city">
-				<img src="images/city_1.jpg" alt="https://unsplash.com/@dnevozhai">
-				<div class="city_overlay">
-					<a href="article/detail/{{id}}" class="d-flex flex-column align-items-center justify-content-center">
-						<div class="city_title">{{article_title}}</div>
-						<div class="city_subtitle">Any article related subtitles</div>
-					</a>
-				</div>
-			</div>
+<!-- Artice Finishes -->
 
 
-{{/each}}
+  <!--Competition section starts -->
 
+  	<div class="recent" style="background: #eff2f6;">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col">
+  					<div class="section_title">Recent Competition</div>
+  					<div class="section_subtitle">Fight the competition and Beat the Gamers</div>
+  				</div>
+  			</div>
+  			<div class="row recent_row">
+  				<div class="col">
+  					<div class="recent_slider_container">
+  						<div class="owl-carousel owl-theme recent_slider">
+                {{#if competitionfetched6}}
+                {{#each competitionfetched6}}
+  							<!-- Slide -->
+  							<div class="owl-item">
+  								<div class="recent_item">
+                    <a href="/competition/detail/{{id}}">
+  									<div class="recent_item_inner">
+  										<div class="recent_item_image">
+                        <img src="/uploads/1557235108603-cod.jpg" alt="" height="200px">
+                        <!-- {{#ifCond competition_isPremium "on"}}
+  											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
+                        {{/ifCond}} -->
+  										</div>
+  										<div class="recent_item_body text-center">
+  											<div class="recent_item_location">{{competition_gametype}}</div>
+  											<div class="recent_item_title"><a href="/competition/detail/{{id}}">{{competition_title}}</a></div>
+  											<!-- <div class="button recent_button"><a href="/competition/detail/{{id}}">View Details</a></div> -->
+  										</div>
+  										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-center">
+  											<div><span>{{competition_city}}</span></div>
+  											<div><div class="recent_icon"><img src="/images/event-calender.png" alt=""></div><span>{{formatTime competition_date "DD/MM/YYYY"}}</span></div>
+                        <div><span>₹ {{competition_price}}</span></div>
+  											<!-- <div><div class="recent_icon"><img src="images/icon_3.png" alt=""></div><span>3 Bathrooms</span></div> -->
+  										</div>
+  									</div>
+                  </a>
+  								</div>
+  							</div>
+                {{/each}}
+                {{/if}}
+          	</div>
+  						<div class="recent_slider_nav_container d-flex flex-row align-items-start justify-content-start">
+  							<div class="recent_slider_nav recent_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+  							<div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+  						</div>
+  					</div>
+  					<div class="button recent_button mb-4"><a href="/competition/1">see more</a></div>
+  				</div>
+  			</div>
+      </div>
+        <!--Coaching section starts -->
+        	<div class="recent" style="background:#ffffff;">
+        		<div class="container">
+        			<div class="row">
+        				<div class="col">
+        					<div class="section_title">E-Gaming
+                    Coachings</div>
+        					<div class="section_subtitle">Learn&nbsp;|&nbsp; Improve&nbsp; |&nbsp; Grow</div>
+        				</div>
+        			</div>
+              {{message.info}}
+        			<div class="row recent_row">
+        				<div class="col">
+        					<div class="recent_slider_container">
+        						<div class="owl-carousel owl-theme recent_slider">
+                      {{#if coachingfetched6}}
+                      {{#each coachingfetched6}}
+        							<!-- Slide -->
+        							<div class="owl-item">
+        								<div class="recent_item">
+                          <a href="/coaching/detail/{{id}}">
+        									<div class="recent_item_inner">
+        										<div class="recent_item_image">
+                              <!-- <img src="/uploads/{{seminar_image}}" alt="" height="200px"> -->
+                              <img src="/uploads/1557207744749-cs.jpg" alt="" height="200px">
+        											<!-- <div class="tag_featured property_tag"><a href="#">Featured</a></div> -->
+        										</div>
+        										<div class="recent_item_body text-center">
+        											<div class="recent_item_title"><a href="/coaching/detail/{{id}}">{{coaching_title}}</a></div>
+        											</div>
+        									</div>
+                        </a>
+        								</div>
+        							</div>
+                      {{/each}}
+                      {{/if}}
+                	</div>
+        						<div class="recent_slider_nav_container d-flex flex-row align-items-start justify-content-start">
+        							<div class="recent_slider_nav recent_slider_prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+        							<div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+        						</div>
+        					</div>
+        					<div class="button recent_button"><a href="/coaching/1">see more</a></div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        <!--Seminar Section Finishes-->
 
-		</div>
-		<div class="button recent_button"><a href="/article/1">see more</a></div>
-	</div>
+  		</div>
+  	</div>
+  <!--competition Section Finishes-->
 
 	<!-- Testimonials -->
 
-	<div class="testimonials">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="section_title">What our clients say</div>
-					<div class="section_subtitle">Search your dream home</div>
-				</div>
-			</div>
-			<div class="row testimonials_row">
-
-				<!-- Testimonial Item -->
-				<div class="col-lg-4 testimonial_col">
-					<div class="testimonial">
-						<div class="testimonial_title">Amazing home for me</div>
-						<div class="testimonial_text">Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
-						<div class="testimonial_author_image"><img src="images/testimonial_1.jpg" alt=""></div>
-						<div class="testimonial_author"><a href="#">Diane Smith</a><span>, Client</span></div>
-						<div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
-					</div>
-				</div>
-
-				<!-- Testimonial Item -->
-				<div class="col-lg-4 testimonial_col">
-					<div class="testimonial">
-						<div class="testimonial_title">Friendly Realtors</div>
-						<div class="testimonial_text">Nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Pellentesque sit amet tellus blandit.</div>
-						<div class="testimonial_author_image"><img src="images/testimonial_2.jpg" alt=""></div>
-						<div class="testimonial_author"><a href="#">Michael Duncan</a><span>, Client</span></div>
-						<div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
-					</div>
-				</div>
-
-				<!-- Testimonial Item -->
-				<div class="col-lg-4 testimonial_col">
-					<div class="testimonial">
-						<div class="testimonial_title">Very good communication</div>
-						<div class="testimonial_text">Retiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul.</div>
-						<div class="testimonial_author_image"><img src="images/testimonial_3.jpg" alt=""></div>
-						<div class="testimonial_author"><a href="#">Shawn Gaines</a><span>, Client</span></div>
-						<div class="rating_r rating_r_5 testimonial_rating"><i></i><i></i><i></i><i></i><i></i></div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
 
 	<!-- Newsletter -->
 
@@ -227,8 +260,8 @@
 				<div class="col">
 					<div class="newsletter_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
 						<div class="newsletter_title_container">
-							<div class="newsletter_title">Subscribe to the Egaming</div>
-							<div class="newsletter_subtitle">We'll notify you of new seminars and competitions</div>
+							<div class="newsletter_title" style="font-size:25px;">Know about the latest <br><br>  seminars and articles <br><br> of your favourite e-gamer</div>
+							<!-- <div class="newsletter_subtitle">We'll notify you of new seminars and competitions</div> -->
 						</div>
 						<div class="newsletter_form_container">
 							<form action="#" class="newsletter_form">

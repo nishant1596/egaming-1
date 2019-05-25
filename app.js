@@ -13,6 +13,11 @@ const multer = require('multer');
 const multerS3 = require('multer-s3');
 const bcrypt=require('bcryptjs');
 const passport=require('passport');
+const moment = require('moment');
+moment().format();
+
+
+
 app.listen(port,()=>{
   console.log('process is running on port '+port);
 });
@@ -30,7 +35,7 @@ const SeminarFetch6=mongoose.model('seminarModel');
 const CompetitionFetch6=mongoose.model('competitionModel');
 const ArticleFetch6=mongoose.model('articleModel');
 const Admin=mongoose.model('adminModel');
-
+const CoachingFetch6=mongoose.model('coachingModel')
 //importing the cms and other needed files for routing configuration
 const seminar=require('./cms-js/seminar');
 const competition=require('./cms-js/competition')
@@ -74,6 +79,10 @@ var hbs=exphbs.create({
       for (var i = 1; i <= n; i++)
         accum+=block.fn(i);
         return accum;
+    },
+    formatTime:function(date, format){
+      var mmnt = moment(date);
+    return mmnt.format(format);
     }
   }
 });
@@ -122,20 +131,60 @@ db.once('open', function() {
 //Routes
 app.get('/', function (req, res) {
 
-  SeminarFetch6.find().limit(6).sort({"_id":-1})
+  SeminarFetch6.find().sort({"_id":-1}).limit(6)
   .then(seminarfetched6=>{
-
-    CompetitionFetch6.find({}).limit(6).sort({"_id":-1})
+    for (var i = 0; i < seminarfetched6.length; i++) {
+      if ((seminarfetched6[i].seminar_title).length>35) {
+          seminarfetched6[i].seminar_title=(seminarfetched6[i].seminar_title).substring(0,35) + '...'
+      }
+    }
+    CompetitionFetch6.find({}).sort({"_id":-1}).limit(6)
     .then(competitionfetched6=>{
       // console.log('article',articlefetched6);
-      ArticleFetch6.find({}).limit(6).sort({"_id":-1}).then(articlefetched6=>{
-        req.flash('success_msg','Coaching Added Successfully')
+      ArticleFetch6.find({}).sort({"_id":-1}).limit(6).then(articlefetched6=>{
+        CoachingFetch6.find({}).sort({"_id":-1}).limit(6).then(coachingfetched6=>{
+          // console.log(articlefetched6);
+          for (var i = 0; i < articlefetched6.length; i++) {
+            if ((articlefetched6[i].article_title).length>35) {
+                articlefetched6[i].article_title=(articlefetched6[i].article_title).substring(0,35) + '...'
+            }
+          }
+          for (var i = 0; i < coachingfetched6.length; i++) {
+            if ((coachingfetched6[i].coaching_title).length>35) {
+                coachingfetched6[i].coaching_title=(coachingfetched6[i].coaching_title).substring(0,35) + '...'
+            }
+          }
+          for (var i = 0; i < competitionfetched6.length; i++) {
+            if ((competitionfetched6[i].competition_title).length>35) {
+                competitionfetched6[i].competition_title=(competitionfetched6[i].competition_title).substring(0,35) + '...'
+            }
+          }
+          //Slicing Date
+          // Method 1
+          // var seminardate_day=[];
+          // var seminardate_month=[];
+          // var seminardate_year=[];
+          // var a=[];
+          // for (var i = 0; i < seminarfetched6.length; i++) {
+          //   seminardate_day[i]=(seminarfetched6[i].seminar_date).getDate()
+          //   seminardate_month[i]=(seminarfetched6[i].seminar_date).getMonth()
+          //   seminardate_year[i]=(seminarfetched6[i].seminar_date).getFullYear()
+          //   a[i]=seminarfetched6[i].seminar_date=`${seminardate_day[i]}/${seminardate_month[i]}/${seminardate_year[i]}`;
+          // }
 
-        res.render('index',{
+          //method 2 (convert date object to string)
+          for (var i = 0; i < seminarfetched6.length; i++) {
+            seminarfetched6[i].seminar_date=(seminarfetched6[i].seminar_date).toString();
+            console.log((seminarfetched6[i].seminar_date).toString());
+
+          }
+          res.render('index',{
           seminarfetched6:seminarfetched6,
           competitionfetched6:competitionfetched6,
-          articlefetched6:articlefetched6
+          articlefetched6:articlefetched6,
+          coachingfetched6:coachingfetched6
         });
+      })
       })
     })
   })
@@ -180,6 +229,12 @@ app.get('/logout',(req,res)=>{
   req.logout();
   req.flash('success_msg','you are logged out')
   res.redirect('/login')
+})
+app.get('/about',(req,res)=>{
+  res.render('about')
+})
+app.get('/contact',(req,res)=>{
+  res.render('contact')
 })
 //Defining Routers
 app.use('/cms/seminar',seminar);

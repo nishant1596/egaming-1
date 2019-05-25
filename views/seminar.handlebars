@@ -1,5 +1,5 @@
-<div class="home">
-  <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/images/properties.jpg" data-speed="0.8"></div>
+<div class="home" style="margin-top:-100px;">
+  <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/images/seminar_background.jpg" data-speed="0.8"></div>
   <div class="home_container">
     <div class="container">
       <div class="row">
@@ -69,7 +69,7 @@
                     <option value="malaysia">Malaysia</option>
                   </select>
                 </div>
-                <div>
+                <!-- <div>
                   <select class="search_form_select" name="seminar_state">
                     <option disabled selected>State</option>
                     <option value="rajasthan">Rajasthan</option>
@@ -81,7 +81,7 @@
                     <option value="haryana">Haryana</option>
                     <option value="gujarat">Gujarat</option>
                   </select>
-                </div>
+                </div> -->
                 <div>
                   <select class="search_form_select" name="seminar_city">
                     <option disabled selected>City</option>
@@ -123,21 +123,22 @@
 
       <div class="col-xl-4 col-lg-6 property_col">
         <div class="property">
+          <a href="/seminar/detail/{{id}}">
           <div class="property_image">
             <img src="/images/footer_main.jpg" alt="" height="200" width="100%">
-            <div class="tag_featured property_tag"><a href="#">Featured</a></div>
           </div>
           <div class="property_body text-center">
             <div class="property_location">{{seminar_gametype}}</div>
-            <div class="property_title"><a href="#">{{seminar_title}}</a></div>
-            <div class="button recent_button"><a href="/seminar/detail/{{id}}">Join Seminar</a></div>
+            <div class="property_title"><a href="/seminar/detail/{{id}}">{{seminar_title}}</a></div>
+            <!-- <div class="button recent_button"><a href="/seminar/detail/{{id}}">Join Seminar</a></div> -->
           </div>
           <div class="property_footer d-flex flex-row align-items-center justify-content-center">
             <div>{{seminar_city}}</div>
-            <div><div class="property_icon"><img src="/images/event-calender.png" alt=""></div><span>24/07/2019</span></div>
+            <div><div class="property_icon"><img src="/images/event-calender.png" alt=""></div><span>{{formatTime seminar_date "DD/MM/YYYY"}}</span></div>
             <!-- <div><div class="property_icon"><img src="/images/icon_2.png" alt=""></div><span>3 Bedrooms</span></div> -->
             <div><span>₹ &nbsp;{{seminar_price}}</span></div>
           </div>
+        </a>
         </div>
       </div>
       {{/each}}

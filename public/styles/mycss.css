@@ -89,6 +89,9 @@ nav{
     height:56px;
     width:80px;
   }
+  .logo-image{
+    max-height: 50px;
+  }
 }
 
 

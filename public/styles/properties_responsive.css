@@ -27,7 +27,7 @@
 
 @media only screen and (max-width: 1600px)
 {
-	
+
 }
 
 /************
@@ -36,7 +36,7 @@
 
 @media only screen and (max-width: 1440px)
 {
-	
+
 }
 
 /************
@@ -45,7 +45,7 @@
 
 @media only screen and (max-width: 1380px)
 {
-	
+
 }
 
 /************
@@ -54,7 +54,7 @@
 
 @media only screen and (max-width: 1280px)
 {
-	
+
 }
 
 /************
@@ -87,7 +87,7 @@
 
 @media only screen and (max-width: 1100px)
 {
-	
+
 }
 
 /************
@@ -96,7 +96,7 @@
 
 @media only screen and (max-width: 1024px)
 {
-	
+
 }
 
 /************
@@ -129,6 +129,7 @@
 	{
 		font-size: 24px;
 	}
+
 	.home_search_container
 	{
 		position: relative;
@@ -136,7 +137,7 @@
 		left: auto;
 		width: 100%;
 		height: auto;
-		margin-top: 80px;
+		margin-top: 20px;
 		margin-bottom: 43px;
 		background: linear-gradient(to right, #487fee, #32fa95);
 	}
@@ -203,7 +204,7 @@
 
 @media only screen and (max-width: 959px)
 {
-	
+
 }
 
 /************
@@ -212,7 +213,7 @@
 
 @media only screen and (max-width: 880px)
 {
-	
+
 }
 
 /************
@@ -221,7 +222,7 @@
 
 @media only screen and (max-width: 768px)
 {
-	
+
 }
 
 /************
@@ -230,7 +231,7 @@
 
 @media only screen and (max-width: 767px)
 {
-	
+
 }
 
 /************
@@ -249,7 +250,7 @@
 	}
 	.home_container
 	{
-		bottom: 90px;
+		/* bottom: 90px; */
 	}
 	.section_title
 	{
@@ -323,7 +324,7 @@
 
 @media only screen and (max-width: 539px)
 {
-	
+
 }
 
 /************
@@ -344,7 +345,7 @@
 
 @media only screen and (max-width: 479px)
 {
-	
+
 }
 
 /************
@@ -353,5 +354,5 @@
 
 @media only screen and (max-width: 400px)
 {
-	
+
 }
