@@ -33,8 +33,8 @@
     <tbody>
       {{#each seminar_list}}
       <tr>
-        <td>{{seminar_title}}</td>
-        <td><img src="/uploads/{{seminar_img}}" style="height:80px"/></td>
+        <td>{{_id}}</td>
+        <td><img src="{{seminar_image}}" style="height:80px"/></td>
         <td><a class="btn btn-primary btn-sm" href="/cms/seminar/edit/{{_id}}">Edit</a></td>
         <td><a class="btn btn-danger btn-sm" href="/cms/seminar/delete/{{_id}}">Delete</a></td>
       </tr>

@@ -6,6 +6,7 @@ const seminarSchema = new Schema({
     type:String,
     required:true
   },
+
   seminar_detail:{
     type:String,
     required:true
@@ -21,7 +22,7 @@ const seminarSchema = new Schema({
     },
     seminar_state:{
       type:String,
-      required:true
+      // required:true
     },
     seminar_city:{
       type:String,

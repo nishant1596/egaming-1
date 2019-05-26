@@ -4,10 +4,6 @@ const mongoose=require('mongoose');
 const nodeMailer=require('nodemailer');
 const bodyParser = require('body-parser');
 
-
-
-
-
 router.use(bodyParser.urlencoded({extended: true}));
 router.use(bodyParser.json());
 

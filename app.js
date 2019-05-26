@@ -5,7 +5,7 @@ const bodyParser=require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
 const methodOverride=require('method-override');
-const upload = require('express-fileupload');
+// const upload = require('express-fileupload');
 const port = process.env.PORT || 5000;
 const flash=require('connect-flash');
 const session=require('express-session');
@@ -15,7 +15,7 @@ const bcrypt=require('bcryptjs');
 const passport=require('passport');
 const moment = require('moment');
 moment().format();
-
+// const upload = require('./config/file-upload');
 
 
 app.listen(port,()=>{
@@ -92,7 +92,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
-app.use(upload());
+// app.use(upload());
 
 //flash and session middlewares
 app.use(session({
@@ -120,7 +120,7 @@ const devURI='mongodb://localhost/seminar_node'
 
 
 
-mongoose.connect(mongoURI, {useNewUrlParser: true});
+mongoose.connect(devURI, {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'database connection error:'));
 db.once('open', function() {
@@ -235,6 +235,9 @@ app.get('/about',(req,res)=>{
 })
 app.get('/contact',(req,res)=>{
   res.render('contact')
+});
+app.get('/sponsor',(req,res)=>{
+  res.render('sponsor')
 })
 //Defining Routers
 app.use('/cms/seminar',seminar);
